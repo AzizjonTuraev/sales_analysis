@@ -23,16 +23,16 @@ class UserRequest(BaseModel):
     forward_week_curve: int = 1
 
 
-@app.get("/")
+@app.get("/home")
 def home():
-    return {"message": "Welcome to the Book Recommendation API"}
+    return {"message": "Welcome to the Sales Analysis Prediction Project"}
 
 
 @app.post("/weekly_predictions")
 def get_weekly_predictions(request: UserRequest):
     """
     Get a weekly forward demand prediction for a chosen product name. 
-    Number of forward curves can be also specified. By default it predicts for the next 1 week
+    The number of forward curves can also be specified. By default, it predicts for the next 1 week
     """
     product_name = request.product_name
     forward_week_curve = request.forward_week_curve
