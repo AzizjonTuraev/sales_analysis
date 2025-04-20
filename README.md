@@ -1,6 +1,6 @@
 # Sales Analysis - ML Prediction
 
-This is a complete end-to-end project, which implements building ETL Pipelines, makes analysis & Dashboards, and then builds a Prediction Model for the Sales Analysis dataset. The dataset contains 6 CSV files: 
+This is a complete end-to-end project, which implements ETL Pipelines, makes analysis & Dashboards, and then builds a Prediction Model for the Sales Analysis dataset. The dataset contains 6 CSV files: 
 - `customers.csv`, 
 - `order_items.csv`, 
 - `orders.csv`
