@@ -1,4 +1,4 @@
-# Book Recommendation System
+# Sales Analysis - ML Prediction
 
 This is a full end-to-end project, which implements builds ETL Pipeline, makes analysis & Dashboards and then build Prediction Model for Sales Analysis dataset. The dataset contains 6 CSV files: 
 - `customers.csv`, 
@@ -84,7 +84,7 @@ The API exposes four main functions, which are also accessible through the web i
 ## Project Structure
 
 ```bash
-recommendation_books/
+sales_analysis/
 │
 ├── Dockerfile          
 ├── requirements.txt         
