@@ -1,0 +1,26 @@
+# book_analysis:
+#   outputs:
+#     dev:
+#       dbname: book_analysis_db  # Changed from 'airflow' to dedicated DB
+#       host: localhost           # Changed from 'PostgreSQL' to 'localhost'
+#       pass: your_secure_password  # Change to your actual password
+#       port: 5432
+#       schema: analytics
+#       threads: 4                # Increased from 1 for better performance
+#       type: postgres
+#       user: dbt_user            # Changed to dedicated dbt user
+#   target: dev
+
+commerce_dbt:
+  outputs:
+    dev:
+      type: postgres
+      host: host.docker.internal # host.docker.internal  # localhost
+      # host: "{{ env_var('DBT_HOST', 'localhost') }}"  # Default: 'localhost' if not set
+      port: 5432
+      user: postgres
+      pass: PostgreSQL32
+      dbname: postgres 
+      schema: commerce  #commerce
+      threads: 4
+  target: dev

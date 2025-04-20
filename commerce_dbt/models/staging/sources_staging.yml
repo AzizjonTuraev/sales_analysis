@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: commerce
+    schema: commerce_raw
+    tables:
+      - name: customers
+        description: "Raw customer data from source system"
+      - name: order_items
+        description: "Raw order line items data"
+      - name: orders
+        description: "Raw order header data"
+      - name: products
+        description: "Raw product data"
+      - name: product_categories
+        description: "Raw product category data"
+      - name: stores
+        description: "Raw store location data"

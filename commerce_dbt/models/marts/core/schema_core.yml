@@ -1,0 +1,127 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: "Master customer dimension with order history and segmentation"
+    config:
+      meta:
+        owner: "Analytics Team"
+        freshness: "Refreshed daily at 6AM UTC"
+    columns:
+      - name: customer_id
+        description: "Unique customer identifier"
+        tests:
+          - unique
+          - not_null
+      - name: customer_name
+        description: "Customer's full name"
+      - name: customer_location
+        description: "Customer's city and state"
+      - name: customer_gender
+        description: "Gender (M/F/Other)"
+      - name: first_order_date
+        description: "Date of first purchase"
+        # tests:
+        #   - not_null
+      - name: most_recent_order_date
+        description: "Date of last purchase"
+      - name: number_of_orders
+        description: "Lifetime order count"
+      - name: customer_segment
+        description: "Tier: New/One-time/Regular/Loyal"
+        tests:
+          - accepted_values:
+              values: ['New', 'One-time', 'Regular', 'Loyal']
+
+  - name: dim_products
+    description: "Product dimension with category and price segmentation"
+    config:
+      meta:
+        owner: "Product Analytics"
+        freshness: "Refreshed weekly"
+    columns:
+      - name: product_id
+        description: "Unique product identifier"
+        tests:
+          - unique
+          - not_null
+      - name: product_name
+        description: "Product display name"
+        tests:
+          - not_null
+      - name: price
+        description: "Current selling price (USD)"
+      - name: category_name
+        description: "Product category"
+      - name: price_segment
+        description: "Tier: Budget/Standard/Premium"
+        tests:
+          - accepted_values:
+              values: ['Budget', 'Standard', 'Premium']
+
+  - name: dim_stores
+    description: "Store dimension with parsed location data"
+    config:
+      meta:
+        owner: "Retail Analytics"
+        freshness: "Refreshed monthly"
+    columns:
+      - name: store_id
+        description: "Unique store identifier"
+        tests:
+          - unique
+          - not_null
+      - name: store_location
+        description: "Full address"
+      - name: city
+        description: "Extracted city name"
+      - name: state
+        description: "Extracted state abbreviation"
+
+  - name: fct_orders
+    description: "Order fact table with line items and calculated values"
+    config:
+      meta:
+        owner: "Revenue Team"
+        freshness: "Refreshed hourly"
+    columns:
+      - name: order_id
+        description: "Order identifier"
+      - name: customer_id
+        description: "Customer reference"
+        tests:
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_id
+      - name: store_id
+        description: "Store reference"
+        tests:
+          - relationships:
+              to: ref('dim_stores')
+              field: store_id
+      - name: order_date
+        description: "Date of order"
+      - name: order_item_id
+        description: "Line item identifier"
+      - name: product_id
+        description: "Product reference"
+        tests:
+          - relationships:
+              to: ref('dim_products')
+              field: product_id
+      - name: product_name
+        description: "Product name at time of order"
+      - name: category_name
+        description: "Category at time of order"
+      - name: price_segment
+        description: "Price tier at time of order"
+      - name: quantity
+        description: "Units purchased"
+      - name: unit_price
+        description: "Price per unit (USD)"
+      - name: total_price
+        description: "Line item total (quantity × unit_price)"
+        tests:
+          - not_null
+      - name: loaded_at
+        description: "ETL timestamp"

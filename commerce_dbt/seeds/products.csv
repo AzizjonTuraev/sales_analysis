@@ -1,0 +1,18 @@
+product_id,product_name,product_categories_id,price
+1,iPhone,1,699
+2,Samsung,1,599
+3,Xiaomi,1,499
+4,HP,2,799
+5,Samsung,2,749
+6,MacBook,2,1299
+7,Acer,2,649
+8,Dell,2,899
+9,Toaster,3,49
+10,Electric Kettle,3,39
+11,Mixer,3,59
+12,Microwave Oven,3,99
+13,Coffee Maker,3,89
+14,Refrigerator,4,999
+15,Stove,4,799
+16,Range Hood,4,450
+17,Dish Washer,4,700

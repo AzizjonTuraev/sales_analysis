@@ -1,0 +1,66 @@
+version: 2
+
+models:
+  - name: customer_orders
+    description: "Customer lifetime value metrics with purchase behavior analysis"
+    config:
+      meta:
+        owner: "Customer Analytics"
+        freshness: "Refreshed daily at 7AM UTC"
+    columns:
+      - name: customer_id
+        description: "Unique customer identifier"
+        tests:
+          - not_null
+      - name: customer_name
+        description: "Customer's full name"
+      - name: customer_location
+        description: "Geographic location (City, State)"
+      - name: customer_segment
+        description: "Behavioral segment (New/One-time/Regular/Loyal)"
+      - name: order_count
+        description: "Total number of orders placed"
+        tests:
+          - not_null
+      - name: total_spend
+        description: "Lifetime spend in USD"
+        # tests:
+        #   - not_null
+      - name: avg_order_value
+        description: "Average order value (AOV) in USD"
+      - name: last_order_date
+        description: "Most recent purchase date"
+      - name: days_since_last_order
+        description: "Days since last purchase (for retention analysis)"
+        meta:
+          calculation: "current_date - last_order_date"
+
+  - name: product_sales
+    description: "Product performance metrics with revenue analysis"
+    config:
+      meta:
+        owner: "Product Analytics"
+        freshness: "Refreshed weekly on Monday 6AM UTC"
+    columns:
+      - name: product_id
+        description: "Unique product identifier"
+        tests:
+          - not_null
+      - name: product_name
+        description: "Product display name"
+      - name: category_name
+        description: "Product category"
+      - name: price_segment
+        description: "Price tier (Budget/Standard/Premium)"
+      - name: total_units_sold
+        description: "Cumulative units sold"
+        tests:
+          - not_null
+      - name: total_revenue
+        description: "Gross revenue in USD"
+        tests:
+          - not_null
+      - name: avg_selling_price
+        description: "Average realized price per unit"
+      - name: order_count
+        description: "Number of orders containing this product"

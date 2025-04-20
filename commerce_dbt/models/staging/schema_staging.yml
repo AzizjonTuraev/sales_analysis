@@ -1,0 +1,147 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Cleansed customer data with standardized field names"
+    config:
+      meta:
+        owner: "Data Team"
+        freshness: "Source updates hourly"
+    columns:
+      - name: customer_id
+        description: "Unique identifier for the customer"
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: "Customer's full name"
+        tests:
+          - not_null
+      - name: location
+        description: "Customer's city and state (e.g., 'New York, NY')"
+      - name: gender
+        description: "Customer gender (M/F/Other)"
+        tests:
+          - accepted_values:
+              values: ['Male', 'Female']
+
+  - name: stg_order_items
+    description: "Order line items with product details"
+    config:
+      meta:
+        owner: "Order Team"
+        freshness: "Updated with each new order"
+    columns:
+      - name: order_item_id
+        description: "Primary key for the order line item"
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: "Foreign key to orders table"
+        tests:
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
+      - name: product_id
+        description: "Foreign key to products table"
+        tests:
+          - relationships:
+              to: ref('stg_products')
+              field: product_id
+      - name: quantity
+        description: "Number of units ordered"
+        tests:
+          - accepted_values:
+              values: [1, 2, 3, 4, 5]
+
+  - name: stg_orders
+    description: "Order headers with customer and store information"
+    config:
+      meta:
+        owner: "Order Team"
+        freshness: "Updated with each new order"
+    columns:
+      - name: order_id
+        description: "Unique order identifier"
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Foreign key to customers table"
+        tests:
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
+      - name: store_id
+        description: "Foreign key to stores table"
+        tests:
+          - relationships:
+              to: ref('stg_stores')
+              field: store_id
+      - name: order_date
+        description: "Timestamp when order was placed"
+        tests:
+          - not_null
+
+  - name: stg_product_categories
+    description: "Product category reference table"
+    config:
+      meta:
+        owner: "Product Team"
+        freshness: "Manual updates"
+    columns:
+      - name: product_categories_id
+        description: "Unique category identifier"
+        tests:
+          - unique
+          - not_null
+      - name: product_categories
+        description: "Category name (e.g., 'Electronics', 'Clothing')"
+        tests:
+          - not_null
+
+  - name: stg_products
+    description: "Product master data with pricing"
+    config:
+      meta:
+        owner: "Product Team"
+        freshness: "Updated weekly"
+    columns:
+      - name: product_id
+        description: "Unique product identifier"
+        tests:
+          - unique
+          - not_null
+      - name: product_name
+        description: "Product display name"
+        tests:
+          - not_null
+      - name: product_categories_id
+        description: "Foreign key to product categories"
+        tests:
+          - relationships:
+              to: ref('stg_product_categories')
+              field: product_categories_id
+      - name: price
+        description: "Current selling price in USD"
+        tests:
+          - not_null
+
+
+  - name: stg_stores
+    description: "Physical store locations"
+    config:
+      meta:
+        owner: "Retail Team"
+        freshness: "Updated quarterly"
+    columns:
+      - name: store_id
+        description: "Unique store identifier"
+        tests:
+          - unique
+          - not_null
+      - name: location
+        description: "Full store address"
+        tests:
+          - not_null
