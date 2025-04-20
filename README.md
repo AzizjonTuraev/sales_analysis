@@ -1,6 +1,6 @@
 # Sales Analysis - ML Prediction
 
-This is a full end-to-end project, which implements builds ETL Pipeline, makes analysis & Dashboards and then build Prediction Model for Sales Analysis dataset. The dataset contains 6 CSV files: 
+This is a complete end-to-end project, which implements building ETL Pipelines, makes analysis & Dashboards, and then builds a Prediction Model for the Sales Analysis dataset. The dataset contains 6 CSV files: 
 - `customers.csv`, 
 - `order_items.csv`, 
 - `orders.csv`
@@ -16,8 +16,8 @@ This is a full end-to-end project, which implements builds ETL Pipeline, makes a
 
 ## Features
 - **ELT using Apache Airflow and DBT Tool**: Automating ELT process.
-- **Connecting to other Data&Business Analysis Tools**: Connecting Apache Airflow to PostSQL and PostSQL to PowerBI.
-- **TimeSeries Prediction**: Different Machine Learning Models and ARIMA Model are built for sale prediction and the best model - LightGBM - has been selected.
+- **Connecting to other Data & Business Analysis Tools**: Connecting Apache Airflow to PostgreSQL and PostgreSQL to PowerBI.
+- **Time Series Prediction**: Different Machine Learning Models and an ARIMA Model were built for sale prediction, and the best model, LightGBM, has been selected.
 - **FastAPI Deployment**: The recommendation system was deployed using FastAPI.
 - **Docker Support**: Created a Dockerfile for easy deployment..
 
@@ -36,10 +36,10 @@ You can run the recommendation system either manually or by using Docker. Below 
 
 2. **Connecting to external Analysis Tools**:
 
-    Now you can go to the http://localhost:8080/home on your browser to access to Apache Airflow.
-    You also need to connect Apache Airflow to SQL (any Relational SQL databases - in this case Dbeawer is used) and SQL to PowerBI.
+    Now you can go to http://localhost:8080/home on your browser to access Apache Airflow.
+    You must also connect Apache Airflow to SQL (any Relational SQL databases - in this case, Dbeawer is used) and SQL to PowerBI.
 
-    Please note, to generate dbt docs - documentation use different port than 8080. This is because airflow-webserver uses it. You could use for example, 8081.
+    Please note, to generate dbt docs - documentation, use a different port than 8080. This is because airflow-webserver uses it. You could use, for example, 8081.
     dbt_docs_generation DAG on Apache Airflow is for dbt doc generation only. You could access it with the code below
 
     ```bash
@@ -63,7 +63,7 @@ You can run the recommendation system either manually or by using Docker. Below 
 
 The API exposes four main functions, which are also accessible through the web interface:
 
-**weekly_predictions**: This returns a weekly prediction for a specific product. Please look at the available product names below or to the products.csv file:
+**weekly_predictions**: This returns a weekly prediction for a specific product. Please look at the available product names below or in the products.csv file:
 - iPhone
 - Samsung
 - Xiaomi
