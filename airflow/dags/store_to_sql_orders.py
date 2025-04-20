@@ -84,32 +84,3 @@ with DAG(
         python_callable=load_new_orders,
     )
 
-    # trigger_order_items = TriggerDagRunOperator(
-    #     task_id='store_to_sql_order_items',
-    #     trigger_dag_id="load_new_order_items",
-    #     execution_date="{{ execution_date }}",
-    #     wait_for_completion=True,  # Set to True if you want to wait
-    #     poke_interval=5,  # Reduced from 60 - checking time for the pre-requisite
-    #     reset_dag_run=True
-    # )
-
-    # trigger_mart = TriggerDagRunOperator(
-    #     task_id='dbt_marts',
-    #     trigger_dag_id="dbt_etl_pipeline_mart",
-    #     execution_date="{{ execution_date }}",
-    #     wait_for_completion=True,
-    #     poke_interval=5,
-    #     reset_dag_run=True
-    # )
-
-    # trigger_test = TriggerDagRunOperator(
-    #     task_id='dbt_test',
-    #     trigger_dag_id="dbt_etl_pipeline_test",
-    #     execution_date="{{ execution_date }}",
-    #     wait_for_completion=True,
-    #     poke_interval=5,
-    #     reset_dag_run=True
-    # )
-
-    # load_task >> trigger_order_items # trigger_staging >> trigger_mart >> trigger_test
-

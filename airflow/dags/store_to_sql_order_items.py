@@ -85,37 +85,3 @@ with DAG(
         execution_timeout=timedelta(minutes=10)  # Set timeout
     )
 
-
-    # # Add this trigger task at the end
-    # trigger_staging = TriggerDagRunOperator(
-    #     task_id='dbt_staging',
-    #     trigger_dag_id="dbt_etl_pipeline_staging",
-    #     execution_date="{{ execution_date }}",
-    #     wait_for_completion=True,  # Set to True if you want to wait
-    #     poke_interval=5,  # Reduced from 60 - checking time for the pre-requisite
-    #     reset_dag_run=True
-    # )
-
-    # trigger_mart = TriggerDagRunOperator(
-    #     task_id='dbt_marts',
-    #     trigger_dag_id="dbt_etl_pipeline_mart",
-    #     execution_date="{{ execution_date }}",
-    #     wait_for_completion=True,  
-    #     poke_interval=5,  
-    #     reset_dag_run=True
-    # )
-
-
-    # trigger_test = TriggerDagRunOperator(
-    #     task_id='dbt_test',
-    #     trigger_dag_id="dbt_etl_pipeline_test",
-    #     execution_date="{{ execution_date }}",
-    #     wait_for_completion=True,
-    #     poke_interval=5,
-    #     reset_dag_run=True
-    # )
-
-    # load_task >> trigger_test
-
-    # load_task >> trigger_staging >> trigger_mart >> trigger_test
-
