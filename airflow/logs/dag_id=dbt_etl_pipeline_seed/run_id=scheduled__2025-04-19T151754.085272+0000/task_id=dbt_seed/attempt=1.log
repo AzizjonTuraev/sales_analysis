@@ -1,0 +1,217 @@
+[2025-04-19T15:18:02.849+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-19T15:18:02.924+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_etl_pipeline_seed.dbt_seed scheduled__2025-04-19T15:17:54.085272+00:00 [queued]>
+[2025-04-19T15:18:02.936+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_etl_pipeline_seed.dbt_seed scheduled__2025-04-19T15:17:54.085272+00:00 [queued]>
+[2025-04-19T15:18:02.937+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-04-19T15:18:02.958+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): dbt_seed> on 2025-04-19 15:17:54.085272+00:00
+[2025-04-19T15:18:02.967+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=1902) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-19T15:18:02.967+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'dbt_etl_pipeline_seed', 'dbt_seed', 'scheduled__2025-04-19T15:17:54.085272+00:00', '--job-id', '208', '--raw', '--subdir', 'DAGS_FOLDER/dbt_seed.py', '--cfg-path', '/tmp/tmparm9ubev']
+[2025-04-19T15:18:02.969+0000] {standard_task_runner.py:72} INFO - Started process 1908 to run task
+[2025-04-19T15:18:02.969+0000] {standard_task_runner.py:105} INFO - Job 208: Subtask dbt_seed
+[2025-04-19T15:18:03.251+0000] {task_command.py:467} INFO - Running <TaskInstance: dbt_etl_pipeline_seed.dbt_seed scheduled__2025-04-19T15:17:54.085272+00:00 [running]> on host 27536697ee14
+[2025-04-19T15:18:03.704+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='azizjon' AIRFLOW_CTX_DAG_ID='dbt_etl_pipeline_seed' AIRFLOW_CTX_TASK_ID='dbt_seed' AIRFLOW_CTX_EXECUTION_DATE='2025-04-19T15:17:54.085272+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-19T15:17:54.085272+00:00'
+[2025-04-19T15:18:03.707+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-19T15:18:03.727+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-04-19T15:18:03.730+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '\n        export PATH=/home/airflow/.local/bin:$PATH\n        cd /opt/airflow/commerce_dbt\n        dbt seed --profiles-dir .\n        ']
+[2025-04-19T15:18:03.737+0000] {subprocess.py:99} INFO - Output:
+[2025-04-19T15:18:06.179+0000] {subprocess.py:106} INFO - [0m15:18:06  Running with dbt=1.7.0
+[2025-04-19T15:18:06.431+0000] {subprocess.py:106} INFO - [0m15:18:06  Registered adapter: postgres=1.7.0
+[2025-04-19T15:18:06.881+0000] {subprocess.py:106} INFO - [0m15:18:06  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2025-04-19T15:18:06.882+0000] {subprocess.py:106} INFO - There are 1 unused configuration paths:
+[2025-04-19T15:18:06.883+0000] {subprocess.py:106} INFO - - seeds.initial_dataset
+[2025-04-19T15:18:06.934+0000] {subprocess.py:106} INFO - [0m15:18:06  Found 13 models, 1 snapshot, 6 seeds, 43 tests, 6 sources, 0 exposures, 0 metrics, 401 macros, 0 groups, 0 semantic models
+[2025-04-19T15:18:06.940+0000] {subprocess.py:106} INFO - [0m15:18:06
+[2025-04-19T15:18:07.433+0000] {subprocess.py:106} INFO - [0m15:18:07  Concurrency: 4 threads (target='dev')
+[2025-04-19T15:18:07.434+0000] {subprocess.py:106} INFO - [0m15:18:07
+[2025-04-19T15:18:07.450+0000] {subprocess.py:106} INFO - [0m15:18:07  1 of 6 START seed file commerce_raw.customers .................................. [RUN]
+[2025-04-19T15:18:07.451+0000] {subprocess.py:106} INFO - [0m15:18:07  2 of 6 START seed file commerce_raw.order_items ................................ [RUN]
+[2025-04-19T15:18:07.452+0000] {subprocess.py:106} INFO - [0m15:18:07  3 of 6 START seed file commerce_raw.orders ..................................... [RUN]
+[2025-04-19T15:18:07.454+0000] {subprocess.py:106} INFO - [0m15:18:07  4 of 6 START seed file commerce_raw.product_categories ......................... [RUN]
+[2025-04-19T15:18:08.517+0000] {subprocess.py:106} INFO - [0m15:18:08  4 of 6 OK loaded seed file commerce_raw.product_categories ..................... [[32mINSERT 4[0m in 1.03s]
+[2025-04-19T15:18:08.599+0000] {subprocess.py:106} INFO - [0m15:18:08  5 of 6 START seed file commerce_raw.products ................................... [RUN]
+[2025-04-19T15:18:09.257+0000] {subprocess.py:106} INFO - [0m15:18:09  5 of 6 OK loaded seed file commerce_raw.products ............................... [[32mINSERT 17[0m in 0.60s]
+[2025-04-19T15:18:09.323+0000] {subprocess.py:106} INFO - [0m15:18:09  6 of 6 START seed file commerce_raw.stores ..................................... [RUN]
+[2025-04-19T15:18:10.088+0000] {subprocess.py:106} INFO - [0m15:18:10  6 of 6 OK loaded seed file commerce_raw.stores ................................. [[32mINSERT 5[0m in 0.72s]
+[2025-04-19T15:18:10.354+0000] {subprocess.py:106} INFO - [0m15:18:10  1 of 6 OK loaded seed file commerce_raw.customers .............................. [[32mINSERT 1000[0m in 2.88s]
+[2025-04-19T15:18:19.622+0000] {subprocess.py:106} INFO - [0m15:18:19  3 of 6 OK loaded seed file commerce_raw.orders ................................. [[32mINSERT 7000[0m in 12.16s]
+[2025-04-19T15:18:21.882+0000] {subprocess.py:106} INFO - [0m15:18:21  2 of 6 OK loaded seed file commerce_raw.order_items ............................ [[32mINSERT 10000[0m in 14.42s]
+[2025-04-19T15:18:21.947+0000] {subprocess.py:106} INFO - [0m15:18:21
+[2025-04-19T15:18:21.947+0000] {subprocess.py:106} INFO - [0m15:18:21  Finished running 6 seeds in 0 hours 0 minutes and 15.01 seconds (15.01s).
+[2025-04-19T15:18:21.974+0000] {subprocess.py:106} INFO - [0m15:18:21
+[2025-04-19T15:18:21.975+0000] {subprocess.py:106} INFO - [0m15:18:21  [32mCompleted successfully[0m
+[2025-04-19T15:18:21.975+0000] {subprocess.py:106} INFO - [0m15:18:21
+[2025-04-19T15:18:21.976+0000] {subprocess.py:106} INFO - [0m15:18:21  Done. PASS=6 WARN=0 ERROR=0 SKIP=0 TOTAL=6
+[2025-04-19T15:18:23.298+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-04-19T15:18:23.352+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 790, in _execute_task
+    task_instance.xcom_push(key=XCOM_RETURN_KEY, value=xcom_value, session=session_or_null)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 94, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3645, in xcom_push
+    XCom.set(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/api_internal/internal_api_call.py", line 166, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 94, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/xcom.py", line 226, in set
+    raise ValueError(f"DAG run not found on DAG {dag_id!r} with ID {run_id!r}")
+ValueError: DAG run not found on DAG 'dbt_etl_pipeline_seed' with ID 'scheduled__2025-04-19T15:17:54.085272+00:00'
+[2025-04-19T15:18:23.405+0000] {taskinstance.py:1226} INFO - Marking task as FAILED. dag_id=dbt_etl_pipeline_seed, task_id=dbt_seed, run_id=scheduled__2025-04-19T15:17:54.085272+00:00, execution_date=20250419T151754, start_date=20250419T151802, end_date=20250419T151823
+[2025-04-19T15:18:23.415+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-19T15:18:23.416+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 208 for task dbt_seed ((psycopg2.errors.ForeignKeyViolation) insert or update on table "task_fail" violates foreign key constraint "task_fail_ti_fkey"
+DETAIL:  Key (dag_id, task_id, run_id, map_index)=(dbt_etl_pipeline_seed, dbt_seed, scheduled__2025-04-19T15:17:54.085272+00:00, -1) is not present in table "task_instance".
+
+[SQL: INSERT INTO task_fail (task_id, dag_id, run_id, map_index, start_date, end_date, duration) VALUES (%(task_id)s, %(dag_id)s, %(run_id)s, %(map_index)s, %(start_date)s, %(end_date)s, %(duration)s) RETURNING task_fail.id]
+[parameters: {'task_id': 'dbt_seed', 'dag_id': 'dbt_etl_pipeline_seed', 'run_id': 'scheduled__2025-04-19T15:17:54.085272+00:00', 'map_index': -1, 'start_date': datetime.datetime(2025, 4, 19, 15, 18, 2, 924863, tzinfo=Timezone('UTC')), 'end_date': datetime.datetime(2025, 4, 19, 15, 18, 23, 405140, tzinfo=Timezone('UTC')), 'duration': 20}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj); 1908)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 790, in _execute_task
+    task_instance.xcom_push(key=XCOM_RETURN_KEY, value=xcom_value, session=session_or_null)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 94, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3645, in xcom_push
+    XCom.set(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/api_internal/internal_api_call.py", line 166, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 94, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/xcom.py", line 226, in set
+    raise ValueError(f"DAG run not found on DAG {dag_id!r} with ID {run_id!r}")
+ValueError: DAG run not found on DAG 'dbt_etl_pipeline_seed' with ID 'scheduled__2025-04-19T15:17:54.085272+00:00'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.ForeignKeyViolation: insert or update on table "task_fail" violates foreign key constraint "task_fail_ti_fkey"
+DETAIL:  Key (dag_id, task_id, run_id, map_index)=(dbt_etl_pipeline_seed, dbt_seed, scheduled__2025-04-19T15:17:54.085272+00:00, -1) is not present in table "task_instance".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 337, in _run_raw_task
+    ti.handle_failure(e, test_mode, context, session=session)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 94, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3434, in handle_failure
+    _handle_failure(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 94, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/api_internal/internal_api_call.py", line 166, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 1244, in _handle_failure
+    TaskInstance.save_to_db(task_instance, session)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/api_internal/internal_api_call.py", line 166, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 94, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3402, in save_to_db
+    ti.get_dagrun().refresh_from_db()
+    ^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 96, in wrapper
+    with create_session() as session:
+         ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 57, in create_session
+    session.commit()
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1454, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 832, in commit
+    self._prepare_impl()
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 811, in _prepare_impl
+    self.session.flush()
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 3449, in flush
+    self._flush(objects)
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 3588, in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 3549, in _flush
+    flush_context.execute()
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 456, in execute
+    rec.execute(self)
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    _emit_insert_statements(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1238, in _emit_insert_statements
+    result = connection._execute_20(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1710, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1577, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1953, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2134, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.ForeignKeyViolation) insert or update on table "task_fail" violates foreign key constraint "task_fail_ti_fkey"
+DETAIL:  Key (dag_id, task_id, run_id, map_index)=(dbt_etl_pipeline_seed, dbt_seed, scheduled__2025-04-19T15:17:54.085272+00:00, -1) is not present in table "task_instance".
+
+[SQL: INSERT INTO task_fail (task_id, dag_id, run_id, map_index, start_date, end_date, duration) VALUES (%(task_id)s, %(dag_id)s, %(run_id)s, %(map_index)s, %(start_date)s, %(end_date)s, %(duration)s) RETURNING task_fail.id]
+[parameters: {'task_id': 'dbt_seed', 'dag_id': 'dbt_etl_pipeline_seed', 'run_id': 'scheduled__2025-04-19T15:17:54.085272+00:00', 'map_index': -1, 'start_date': datetime.datetime(2025, 4, 19, 15, 18, 2, 924863, tzinfo=Timezone('UTC')), 'end_date': datetime.datetime(2025, 4, 19, 15, 18, 23, 405140, tzinfo=Timezone('UTC')), 'duration': 20}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)
+[2025-04-19T15:18:23.463+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-04-19T15:18:23.520+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

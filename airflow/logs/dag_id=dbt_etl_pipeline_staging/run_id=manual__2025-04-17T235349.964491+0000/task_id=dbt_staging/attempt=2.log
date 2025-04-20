@@ -1,0 +1,139 @@
+[2025-04-19T12:02:36.724+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-19T12:02:37.036+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_etl_pipeline_staging.dbt_staging manual__2025-04-17T23:53:49.964491+00:00 [queued]>
+[2025-04-19T12:02:37.074+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_etl_pipeline_staging.dbt_staging manual__2025-04-17T23:53:49.964491+00:00 [queued]>
+[2025-04-19T12:02:37.078+0000] {taskinstance.py:2867} INFO - Starting attempt 2 of 2
+[2025-04-19T12:02:37.150+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): dbt_staging> on 2025-04-17 23:53:49.964491+00:00
+[2025-04-19T12:02:37.179+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'dbt_etl_pipeline_staging', 'dbt_staging', 'manual__2025-04-17T23:53:49.964491+00:00', '--job-id', '150', '--raw', '--subdir', 'DAGS_FOLDER/dbt_staging.py', '--cfg-path', '/tmp/tmpjh2fewbx']
+[2025-04-19T12:02:37.190+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=399) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-19T12:02:37.193+0000] {standard_task_runner.py:72} INFO - Started process 413 to run task
+[2025-04-19T12:02:37.191+0000] {standard_task_runner.py:105} INFO - Job 150: Subtask dbt_staging
+[2025-04-19T12:02:38.035+0000] {task_command.py:467} INFO - Running <TaskInstance: dbt_etl_pipeline_staging.dbt_staging manual__2025-04-17T23:53:49.964491+00:00 [running]> on host 8310323359f9
+[2025-04-19T12:02:39.095+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='azizjon' AIRFLOW_CTX_DAG_ID='dbt_etl_pipeline_staging' AIRFLOW_CTX_TASK_ID='dbt_staging' AIRFLOW_CTX_EXECUTION_DATE='2025-04-17T23:53:49.964491+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-17T23:53:49.964491+00:00'
+[2025-04-19T12:02:39.097+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-19T12:02:39.170+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-04-19T12:02:39.179+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '\n        export PATH=/home/airflow/.local/bin:$PATH\n        cd /opt/airflow/commerce_dbt\n        dbt run --select staging --profiles-dir .\n        ']
+[2025-04-19T12:02:39.203+0000] {subprocess.py:99} INFO - Output:
+[2025-04-19T12:02:49.552+0000] {subprocess.py:106} INFO - [0m12:02:49  Running with dbt=1.7.0
+[2025-04-19T12:02:50.724+0000] {subprocess.py:106} INFO - [0m12:02:50  Registered adapter: postgres=1.7.0
+[2025-04-19T12:02:51.959+0000] {subprocess.py:106} INFO - [0m12:02:51  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2025-04-19T12:02:51.963+0000] {subprocess.py:106} INFO - There are 1 unused configuration paths:
+[2025-04-19T12:02:51.966+0000] {subprocess.py:106} INFO - - seeds.initial_dataset
+[2025-04-19T12:02:52.191+0000] {subprocess.py:106} INFO - [0m12:02:52  Found 13 models, 1 snapshot, 6 seeds, 43 tests, 6 sources, 0 exposures, 0 metrics, 401 macros, 0 groups, 0 semantic models
+[2025-04-19T12:02:52.219+0000] {subprocess.py:106} INFO - [0m12:02:52
+[2025-04-19T12:02:54.481+0000] {subprocess.py:106} INFO - [0m12:02:54  Concurrency: 4 threads (target='dev')
+[2025-04-19T12:02:54.483+0000] {subprocess.py:106} INFO - [0m12:02:54
+[2025-04-19T12:02:54.587+0000] {subprocess.py:106} INFO - [0m12:02:54  1 of 6 START sql table model commerce_staging.stg_customers .................... [RUN]
+[2025-04-19T12:02:54.593+0000] {subprocess.py:106} INFO - [0m12:02:54  2 of 6 START sql table model commerce_staging.stg_order_items .................. [RUN]
+[2025-04-19T12:02:54.620+0000] {subprocess.py:106} INFO - [0m12:02:54  3 of 6 START sql table model commerce_staging.stg_orders ....................... [RUN]
+[2025-04-19T12:02:54.632+0000] {subprocess.py:106} INFO - [0m12:02:54  4 of 6 START sql table model commerce_staging.stg_product_categories ........... [RUN]
+[2025-04-19T12:02:56.739+0000] {subprocess.py:106} INFO - [0m12:02:56  3 of 6 ERROR creating sql table model commerce_staging.stg_orders .............. [[31mERROR[0m in 1.93s]
+[2025-04-19T12:02:56.786+0000] {subprocess.py:106} INFO - [0m12:02:56  4 of 6 ERROR creating sql table model commerce_staging.stg_product_categories .. [[31mERROR[0m in 2.08s]
+[2025-04-19T12:02:56.911+0000] {subprocess.py:106} INFO - [0m12:02:56  5 of 6 START sql table model commerce_staging.stg_products ..................... [RUN]
+[2025-04-19T12:02:57.006+0000] {subprocess.py:106} INFO - [0m12:02:56  1 of 6 ERROR creating sql table model commerce_staging.stg_customers ........... [[31mERROR[0m in 2.23s]
+[2025-04-19T12:02:57.012+0000] {subprocess.py:106} INFO - [0m12:02:56  6 of 6 START sql table model commerce_staging.stg_stores ....................... [RUN]
+[2025-04-19T12:02:57.032+0000] {subprocess.py:106} INFO - [0m12:02:57  2 of 6 ERROR creating sql table model commerce_staging.stg_order_items ......... [[31mERROR[0m in 2.38s]
+[2025-04-19T12:02:57.744+0000] {subprocess.py:106} INFO - [0m12:02:57  5 of 6 ERROR creating sql table model commerce_staging.stg_products ............ [[31mERROR[0m in 0.73s]
+[2025-04-19T12:02:57.901+0000] {subprocess.py:106} INFO - [0m12:02:57  6 of 6 ERROR creating sql table model commerce_staging.stg_stores .............. [[31mERROR[0m in 0.88s]
+[2025-04-19T12:02:58.135+0000] {subprocess.py:106} INFO - [0m12:02:58
+[2025-04-19T12:02:58.139+0000] {subprocess.py:106} INFO - [0m12:02:58  Finished running 6 table models in 0 hours 0 minutes and 5.91 seconds (5.91s).
+[2025-04-19T12:02:58.221+0000] {subprocess.py:106} INFO - [0m12:02:58
+[2025-04-19T12:02:58.222+0000] {subprocess.py:106} INFO - [0m12:02:58  [31mCompleted with 6 errors and 0 warnings:[0m
+[2025-04-19T12:02:58.224+0000] {subprocess.py:106} INFO - [0m12:02:58
+[2025-04-19T12:02:58.226+0000] {subprocess.py:106} INFO - [0m12:02:58    Database Error in model stg_orders (models/staging/stg_orders.sql)
+[2025-04-19T12:02:58.227+0000] {subprocess.py:106} INFO -   relation "stg_orders" already exists
+[2025-04-19T12:02:58.229+0000] {subprocess.py:106} INFO -   compiled Code at target/run/commerce_dbt/models/staging/stg_orders.sql
+[2025-04-19T12:02:58.231+0000] {subprocess.py:106} INFO - [0m12:02:58
+[2025-04-19T12:02:58.232+0000] {subprocess.py:106} INFO - [0m12:02:58    Database Error in model stg_product_categories (models/staging/stg_product_categories.sql)
+[2025-04-19T12:02:58.233+0000] {subprocess.py:106} INFO -   relation "stg_product_categories" already exists
+[2025-04-19T12:02:58.235+0000] {subprocess.py:106} INFO -   compiled Code at target/run/commerce_dbt/models/staging/stg_product_categories.sql
+[2025-04-19T12:02:58.238+0000] {subprocess.py:106} INFO - [0m12:02:58
+[2025-04-19T12:02:58.240+0000] {subprocess.py:106} INFO - [0m12:02:58    Database Error in model stg_customers (models/staging/stg_customers.sql)
+[2025-04-19T12:02:58.242+0000] {subprocess.py:106} INFO -   relation "stg_customers" already exists
+[2025-04-19T12:02:58.243+0000] {subprocess.py:106} INFO -   compiled Code at target/run/commerce_dbt/models/staging/stg_customers.sql
+[2025-04-19T12:02:58.244+0000] {subprocess.py:106} INFO - [0m12:02:58
+[2025-04-19T12:02:58.245+0000] {subprocess.py:106} INFO - [0m12:02:58    Database Error in model stg_order_items (models/staging/stg_order_items.sql)
+[2025-04-19T12:02:58.246+0000] {subprocess.py:106} INFO -   relation "stg_order_items" already exists
+[2025-04-19T12:02:58.248+0000] {subprocess.py:106} INFO -   compiled Code at target/run/commerce_dbt/models/staging/stg_order_items.sql
+[2025-04-19T12:02:58.249+0000] {subprocess.py:106} INFO - [0m12:02:58
+[2025-04-19T12:02:58.251+0000] {subprocess.py:106} INFO - [0m12:02:58    Database Error in model stg_products (models/staging/stg_products.sql)
+[2025-04-19T12:02:58.252+0000] {subprocess.py:106} INFO -   relation "stg_products" already exists
+[2025-04-19T12:02:58.253+0000] {subprocess.py:106} INFO -   compiled Code at target/run/commerce_dbt/models/staging/stg_products.sql
+[2025-04-19T12:02:58.254+0000] {subprocess.py:106} INFO - [0m12:02:58
+[2025-04-19T12:02:58.255+0000] {subprocess.py:106} INFO - [0m12:02:58    Database Error in model stg_stores (models/staging/stg_stores.sql)
+[2025-04-19T12:02:58.256+0000] {subprocess.py:106} INFO -   relation "stg_stores" already exists
+[2025-04-19T12:02:58.258+0000] {subprocess.py:106} INFO -   compiled Code at target/run/commerce_dbt/models/staging/stg_stores.sql
+[2025-04-19T12:02:58.258+0000] {subprocess.py:106} INFO - [0m12:02:58
+[2025-04-19T12:02:58.259+0000] {subprocess.py:106} INFO - [0m12:02:58  Done. PASS=0 WARN=0 ERROR=6 SKIP=0 TOTAL=6
+[2025-04-19T12:03:00.395+0000] {subprocess.py:110} INFO - Command exited with return code 1
+[2025-04-19T12:03:00.666+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-04-19T12:03:00.709+0000] {taskinstance.py:1226} INFO - Marking task as UP_FOR_RETRY. dag_id=dbt_etl_pipeline_staging, task_id=dbt_staging, run_id=manual__2025-04-17T23:53:49.964491+00:00, execution_date=20250417T235349, start_date=20250419T120237, end_date=20250419T120300
+[2025-04-19T12:03:01.438+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-19T12:03:01.445+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 150 for task dbt_staging (Bash command failed. The command returned a non-zero exit code 1.; 413)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-04-19T12:03:01.534+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-04-19T12:03:01.816+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-19T12:03:01.838+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-04-19T12:03:02.242+0000] {standard_task_runner.py:217} INFO - Process not found (most likely exited), stop collecting metrics

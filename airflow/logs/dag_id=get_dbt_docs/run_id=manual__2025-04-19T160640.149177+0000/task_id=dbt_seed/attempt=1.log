@@ -1,0 +1,32 @@
+[2025-04-19T16:06:41.105+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-19T16:06:41.191+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: get_dbt_docs.dbt_seed manual__2025-04-19T16:06:40.149177+00:00 [queued]>
+[2025-04-19T16:06:41.205+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: get_dbt_docs.dbt_seed manual__2025-04-19T16:06:40.149177+00:00 [queued]>
+[2025-04-19T16:06:41.219+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-04-19T16:06:41.240+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): dbt_seed> on 2025-04-19 16:06:40.149177+00:00
+[2025-04-19T16:06:41.248+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=6562) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-19T16:06:41.249+0000] {standard_task_runner.py:72} INFO - Started process 6563 to run task
+[2025-04-19T16:06:41.249+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'get_dbt_docs', 'dbt_seed', 'manual__2025-04-19T16:06:40.149177+00:00', '--job-id', '270', '--raw', '--subdir', 'DAGS_FOLDER/dbt_docs.py', '--cfg-path', '/tmp/tmpx31h7cad']
+[2025-04-19T16:06:41.251+0000] {standard_task_runner.py:105} INFO - Job 270: Subtask dbt_seed
+[2025-04-19T16:06:41.451+0000] {task_command.py:467} INFO - Running <TaskInstance: get_dbt_docs.dbt_seed manual__2025-04-19T16:06:40.149177+00:00 [running]> on host 27536697ee14
+[2025-04-19T16:06:41.879+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='azizjon' AIRFLOW_CTX_DAG_ID='get_dbt_docs' AIRFLOW_CTX_TASK_ID='dbt_seed' AIRFLOW_CTX_EXECUTION_DATE='2025-04-19T16:06:40.149177+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-19T16:06:40.149177+00:00'
+[2025-04-19T16:06:41.881+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-19T16:06:41.899+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-04-19T16:06:41.902+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '\n        export PATH=/home/airflow/.local/bin:$PATH\n        cd /opt/airflow/commerce_dbt\n        dbt docs generate\n        ']
+[2025-04-19T16:06:41.913+0000] {subprocess.py:99} INFO - Output:
+[2025-04-19T16:06:44.381+0000] {subprocess.py:106} INFO - [0m16:06:44  Running with dbt=1.7.0
+[2025-04-19T16:06:44.718+0000] {subprocess.py:106} INFO - [0m16:06:44  Registered adapter: postgres=1.7.0
+[2025-04-19T16:06:45.398+0000] {subprocess.py:106} INFO - [0m16:06:45  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2025-04-19T16:06:45.400+0000] {subprocess.py:106} INFO - There are 1 unused configuration paths:
+[2025-04-19T16:06:45.402+0000] {subprocess.py:106} INFO - - seeds.initial_dataset
+[2025-04-19T16:06:45.444+0000] {subprocess.py:106} INFO - [0m16:06:45  Found 13 models, 1 snapshot, 6 seeds, 43 tests, 6 sources, 0 exposures, 0 metrics, 401 macros, 0 groups, 0 semantic models
+[2025-04-19T16:06:45.455+0000] {subprocess.py:106} INFO - [0m16:06:45
+[2025-04-19T16:06:45.824+0000] {subprocess.py:106} INFO - [0m16:06:45  Concurrency: 4 threads (target='dev')
+[2025-04-19T16:06:45.826+0000] {subprocess.py:106} INFO - [0m16:06:45
+[2025-04-19T16:06:47.170+0000] {subprocess.py:106} INFO - [0m16:06:47  Building catalog
+[2025-04-19T16:06:47.343+0000] {subprocess.py:106} INFO - [0m16:06:47  Catalog written to /opt/airflow/commerce_dbt/target/catalog.json
+[2025-04-19T16:06:48.354+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-04-19T16:06:48.649+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-19T16:06:48.651+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=get_dbt_docs, task_id=dbt_seed, run_id=manual__2025-04-19T16:06:40.149177+00:00, execution_date=20250419T160640, start_date=20250419T160641, end_date=20250419T160648
+[2025-04-19T16:06:48.918+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-19T16:06:48.997+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-19T16:06:49.002+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

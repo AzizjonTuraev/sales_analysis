@@ -1,0 +1,40 @@
+[2025-04-19T01:31:19.401+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-19T01:31:19.512+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: load_new_order_items.dbt_staging scheduled__2025-04-18T00:00:00+00:00 [queued]>
+[2025-04-19T01:31:19.535+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: load_new_order_items.dbt_staging scheduled__2025-04-18T00:00:00+00:00 [queued]>
+[2025-04-19T01:31:19.537+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-04-19T01:31:19.565+0000] {taskinstance.py:2890} INFO - Executing <Task(TriggerDagRunOperator): dbt_staging> on 2025-04-18 00:00:00+00:00
+[2025-04-19T01:31:19.577+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'load_new_order_items', 'dbt_staging', 'scheduled__2025-04-18T00:00:00+00:00', '--job-id', '135', '--raw', '--subdir', 'DAGS_FOLDER/store_to_sql_order_items.py', '--cfg-path', '/tmp/tmpqvia0zy6']
+[2025-04-19T01:31:19.581+0000] {standard_task_runner.py:105} INFO - Job 135: Subtask dbt_staging
+[2025-04-19T01:31:19.581+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=228) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-19T01:31:19.582+0000] {standard_task_runner.py:72} INFO - Started process 229 to run task
+[2025-04-19T01:31:19.929+0000] {task_command.py:467} INFO - Running <TaskInstance: load_new_order_items.dbt_staging scheduled__2025-04-18T00:00:00+00:00 [running]> on host 9c8f13362ff5
+[2025-04-19T01:31:20.498+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='azizjon' AIRFLOW_CTX_DAG_ID='load_new_order_items' AIRFLOW_CTX_TASK_ID='dbt_staging' AIRFLOW_CTX_EXECUTION_DATE='2025-04-18T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-18T00:00:00+00:00'
+[2025-04-19T01:31:20.500+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-19T01:31:20.986+0000] {trigger_dagrun.py:217} INFO - Clearing dbt_etl_pipeline_staging on 2025-04-18 00:00:00+00:00
+[2025-04-19T01:31:21.607+0000] {trigger_dagrun.py:257} INFO - Waiting for dbt_etl_pipeline_staging on 2025-04-18 00:00:00+00:00 to become allowed state ['success'] ...
+[2025-04-19T01:31:26.666+0000] {trigger_dagrun.py:271} INFO - dbt_etl_pipeline_staging finished with allowed state success
+[2025-04-19T01:31:26.736+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-19T01:31:26.736+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=load_new_order_items, task_id=dbt_staging, run_id=scheduled__2025-04-18T00:00:00+00:00, execution_date=20250418T000000, start_date=20250419T013119, end_date=20250419T013126
+[2025-04-19T01:31:26.901+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-19T01:31:27.027+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-19T01:31:27.031+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-04-19T12:07:11.777+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-19T12:07:11.903+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: load_new_order_items.dbt_staging scheduled__2025-04-18T00:00:00+00:00 [queued]>
+[2025-04-19T12:07:11.927+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: load_new_order_items.dbt_staging scheduled__2025-04-18T00:00:00+00:00 [queued]>
+[2025-04-19T12:07:11.927+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-04-19T12:07:11.948+0000] {taskinstance.py:2890} INFO - Executing <Task(TriggerDagRunOperator): dbt_staging> on 2025-04-18 00:00:00+00:00
+[2025-04-19T12:07:11.957+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'load_new_order_items', 'dbt_staging', 'scheduled__2025-04-18T00:00:00+00:00', '--job-id', '166', '--raw', '--subdir', 'DAGS_FOLDER/store_to_sql_order_items.py', '--cfg-path', '/tmp/tmpn94n2cfe']
+[2025-04-19T12:07:11.960+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=984) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-19T12:07:11.960+0000] {standard_task_runner.py:105} INFO - Job 166: Subtask dbt_staging
+[2025-04-19T12:07:11.961+0000] {standard_task_runner.py:72} INFO - Started process 985 to run task
+[2025-04-19T12:07:12.177+0000] {task_command.py:467} INFO - Running <TaskInstance: load_new_order_items.dbt_staging scheduled__2025-04-18T00:00:00+00:00 [running]> on host 8310323359f9
+[2025-04-19T12:07:12.487+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='azizjon' AIRFLOW_CTX_DAG_ID='load_new_order_items' AIRFLOW_CTX_TASK_ID='dbt_staging' AIRFLOW_CTX_EXECUTION_DATE='2025-04-18T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-18T00:00:00+00:00'
+[2025-04-19T12:07:12.489+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-19T12:07:12.693+0000] {trigger_dagrun.py:217} INFO - Clearing dbt_etl_pipeline_staging on 2025-04-18 00:00:00+00:00
+[2025-04-19T12:07:13.053+0000] {trigger_dagrun.py:257} INFO - Waiting for dbt_etl_pipeline_staging on 2025-04-18 00:00:00+00:00 to become allowed state ['success'] ...
+[2025-04-19T12:07:18.254+0000] {trigger_dagrun.py:271} INFO - dbt_etl_pipeline_staging finished with allowed state success
+[2025-04-19T12:07:18.340+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-19T12:07:18.341+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=load_new_order_items, task_id=dbt_staging, run_id=scheduled__2025-04-18T00:00:00+00:00, execution_date=20250418T000000, start_date=20250419T120711, end_date=20250419T120718
+[2025-04-19T12:07:18.556+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-19T12:07:18.673+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-19T12:07:18.677+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

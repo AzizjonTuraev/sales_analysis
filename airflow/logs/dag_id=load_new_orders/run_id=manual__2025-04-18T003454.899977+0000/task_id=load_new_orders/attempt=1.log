@@ -1,0 +1,18 @@
+[2025-04-18T00:34:56.636+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-18T00:34:56.785+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: load_new_orders.load_new_orders manual__2025-04-18T00:34:54.899977+00:00 [queued]>
+[2025-04-18T00:34:56.802+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: load_new_orders.load_new_orders manual__2025-04-18T00:34:54.899977+00:00 [queued]>
+[2025-04-18T00:34:56.805+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-04-18T00:34:56.824+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): load_new_orders> on 2025-04-18 00:34:54.899977+00:00
+[2025-04-18T00:34:56.837+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'load_new_orders', 'load_new_orders', 'manual__2025-04-18T00:34:54.899977+00:00', '--job-id', '50', '--raw', '--subdir', 'DAGS_FOLDER/store_to_sql_orders.py', '--cfg-path', '/tmp/tmp6q1r_5f8']
+[2025-04-18T00:34:56.840+0000] {standard_task_runner.py:105} INFO - Job 50: Subtask load_new_orders
+[2025-04-18T00:34:56.840+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=875) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-18T00:34:56.842+0000] {standard_task_runner.py:72} INFO - Started process 891 to run task
+[2025-04-18T00:34:57.273+0000] {task_command.py:467} INFO - Running <TaskInstance: load_new_orders.load_new_orders manual__2025-04-18T00:34:54.899977+00:00 [running]> on host f693ba064550
+[2025-04-18T00:34:57.771+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='azizjon' AIRFLOW_CTX_DAG_ID='load_new_orders' AIRFLOW_CTX_TASK_ID='load_new_orders' AIRFLOW_CTX_EXECUTION_DATE='2025-04-18T00:34:54.899977+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-18T00:34:54.899977+00:00'
+[2025-04-18T00:34:57.772+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-18T00:34:57.862+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-04-18T00:34:57.926+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-18T00:34:57.930+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=load_new_orders, task_id=load_new_orders, run_id=manual__2025-04-18T00:34:54.899977+00:00, execution_date=20250418T003454, start_date=20250418T003456, end_date=20250418T003457
+[2025-04-18T00:34:58.105+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-18T00:34:58.174+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-18T00:34:58.180+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,46 @@
+[2025-04-19T15:18:24.386+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-19T15:18:24.483+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_etl_pipeline_mart.dbt_marts_core scheduled__2025-04-19T15:18:04.891707+00:00 [queued]>
+[2025-04-19T15:18:24.512+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_etl_pipeline_mart.dbt_marts_core scheduled__2025-04-19T15:18:04.891707+00:00 [queued]>
+[2025-04-19T15:18:24.514+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-04-19T15:18:24.536+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): dbt_marts_core> on 2025-04-19 15:18:04.891707+00:00
+[2025-04-19T15:18:24.546+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=1940) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-19T15:18:24.548+0000] {standard_task_runner.py:72} INFO - Started process 1941 to run task
+[2025-04-19T15:18:24.547+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'dbt_etl_pipeline_mart', 'dbt_marts_core', 'scheduled__2025-04-19T15:18:04.891707+00:00', '--job-id', '209', '--raw', '--subdir', 'DAGS_FOLDER/dbt_marts.py', '--cfg-path', '/tmp/tmpzyp87exa']
+[2025-04-19T15:18:24.551+0000] {standard_task_runner.py:105} INFO - Job 209: Subtask dbt_marts_core
+[2025-04-19T15:18:24.872+0000] {task_command.py:467} INFO - Running <TaskInstance: dbt_etl_pipeline_mart.dbt_marts_core scheduled__2025-04-19T15:18:04.891707+00:00 [running]> on host 27536697ee14
+[2025-04-19T15:18:25.278+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='azizjon' AIRFLOW_CTX_DAG_ID='dbt_etl_pipeline_mart' AIRFLOW_CTX_TASK_ID='dbt_marts_core' AIRFLOW_CTX_EXECUTION_DATE='2025-04-19T15:18:04.891707+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-19T15:18:04.891707+00:00'
+[2025-04-19T15:18:25.279+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-19T15:18:25.292+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-04-19T15:18:25.293+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '\n        export PATH=/home/airflow/.local/bin:$PATH\n        cd /opt/airflow/commerce_dbt\n        dbt run --select marts.core --profiles-dir .\n        ']
+[2025-04-19T15:18:25.301+0000] {subprocess.py:99} INFO - Output:
+[2025-04-19T15:18:27.863+0000] {subprocess.py:106} INFO - [0m15:18:27  Running with dbt=1.7.0
+[2025-04-19T15:18:28.263+0000] {subprocess.py:106} INFO - [0m15:18:28  Registered adapter: postgres=1.7.0
+[2025-04-19T15:18:28.792+0000] {subprocess.py:106} INFO - [0m15:18:28  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2025-04-19T15:18:28.792+0000] {subprocess.py:106} INFO - There are 1 unused configuration paths:
+[2025-04-19T15:18:28.793+0000] {subprocess.py:106} INFO - - seeds.initial_dataset
+[2025-04-19T15:18:28.840+0000] {subprocess.py:106} INFO - [0m15:18:28  Found 13 models, 1 snapshot, 6 seeds, 43 tests, 6 sources, 0 exposures, 0 metrics, 401 macros, 0 groups, 0 semantic models
+[2025-04-19T15:18:28.844+0000] {subprocess.py:106} INFO - [0m15:18:28
+[2025-04-19T15:18:29.242+0000] {subprocess.py:106} INFO - [0m15:18:29  Concurrency: 4 threads (target='dev')
+[2025-04-19T15:18:29.242+0000] {subprocess.py:106} INFO - [0m15:18:29
+[2025-04-19T15:18:29.253+0000] {subprocess.py:106} INFO - [0m15:18:29  1 of 5 START sql table model commerce_core.dim_customers ....................... [RUN]
+[2025-04-19T15:18:29.254+0000] {subprocess.py:106} INFO - [0m15:18:29  2 of 5 START sql table model commerce_core.dim_products ........................ [RUN]
+[2025-04-19T15:18:29.256+0000] {subprocess.py:106} INFO - [0m15:18:29  3 of 5 START sql table model commerce_core.dim_stores .......................... [RUN]
+[2025-04-19T15:18:29.538+0000] {subprocess.py:106} INFO - [0m15:18:29  2 of 5 OK created sql table model commerce_core.dim_products ................... [[32mSELECT 17[0m in 0.28s]
+[2025-04-19T15:18:29.540+0000] {subprocess.py:106} INFO - [0m15:18:29  3 of 5 OK created sql table model commerce_core.dim_stores ..................... [[32mSELECT 5[0m in 0.28s]
+[2025-04-19T15:18:29.541+0000] {subprocess.py:106} INFO - [0m15:18:29  1 of 5 OK created sql table model commerce_core.dim_customers .................. [[32mSELECT 1000[0m in 0.28s]
+[2025-04-19T15:18:29.546+0000] {subprocess.py:106} INFO - [0m15:18:29  4 of 5 START sql table model commerce_core.fct_orders .......................... [RUN]
+[2025-04-19T15:18:29.546+0000] {subprocess.py:106} INFO - [0m15:18:29  5 of 5 START sql table model commerce_core.ml_analytics ........................ [RUN]
+[2025-04-19T15:18:29.760+0000] {subprocess.py:106} INFO - [0m15:18:29  4 of 5 OK created sql table model commerce_core.fct_orders ..................... [[32mSELECT 10000[0m in 0.21s]
+[2025-04-19T15:18:29.766+0000] {subprocess.py:106} INFO - [0m15:18:29  5 of 5 OK created sql table model commerce_core.ml_analytics ................... [[32mSELECT 10000[0m in 0.21s]
+[2025-04-19T15:18:29.880+0000] {subprocess.py:106} INFO - [0m15:18:29
+[2025-04-19T15:18:29.881+0000] {subprocess.py:106} INFO - [0m15:18:29  Finished running 5 table models in 0 hours 0 minutes and 1.04 seconds (1.04s).
+[2025-04-19T15:18:29.917+0000] {subprocess.py:106} INFO - [0m15:18:29
+[2025-04-19T15:18:29.917+0000] {subprocess.py:106} INFO - [0m15:18:29  [32mCompleted successfully[0m
+[2025-04-19T15:18:29.918+0000] {subprocess.py:106} INFO - [0m15:18:29
+[2025-04-19T15:18:29.919+0000] {subprocess.py:106} INFO - [0m15:18:29  Done. PASS=5 WARN=0 ERROR=0 SKIP=0 TOTAL=5
+[2025-04-19T15:18:30.965+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-04-19T15:18:31.097+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-19T15:18:31.098+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=dbt_etl_pipeline_mart, task_id=dbt_marts_core, run_id=scheduled__2025-04-19T15:18:04.891707+00:00, execution_date=20250419T151804, start_date=20250419T151824, end_date=20250419T151831
+[2025-04-19T15:18:31.245+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-19T15:18:31.311+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-19T15:18:31.315+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

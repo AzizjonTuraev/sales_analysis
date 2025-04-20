@@ -1,0 +1,9 @@
+FROM apache/airflow:2.10.5
+USER root
+
+# Install dbt and ensure it's in PATH
+RUN pip install --no-cache-dir dbt-postgres==1.7.0 && \
+    ln -s /home/airflow/.local/bin/dbt /usr/local/bin/dbt && \
+    chown -R 50000:0 /opt/airflow/commerce_dbt
+
+USER airflow

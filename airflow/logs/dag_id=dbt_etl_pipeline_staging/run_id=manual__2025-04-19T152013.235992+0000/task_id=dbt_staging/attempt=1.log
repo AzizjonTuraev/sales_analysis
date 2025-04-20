@@ -1,0 +1,48 @@
+[2025-04-19T15:23:09.867+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-19T15:23:09.939+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_etl_pipeline_staging.dbt_staging manual__2025-04-19T15:20:13.235992+00:00 [queued]>
+[2025-04-19T15:23:09.953+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_etl_pipeline_staging.dbt_staging manual__2025-04-19T15:20:13.235992+00:00 [queued]>
+[2025-04-19T15:23:09.955+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-04-19T15:23:09.974+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): dbt_staging> on 2025-04-19 15:20:13.235992+00:00
+[2025-04-19T15:23:09.982+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=2402) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-19T15:23:09.983+0000] {standard_task_runner.py:72} INFO - Started process 2406 to run task
+[2025-04-19T15:23:09.983+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'dbt_etl_pipeline_staging', 'dbt_staging', 'manual__2025-04-19T15:20:13.235992+00:00', '--job-id', '218', '--raw', '--subdir', 'DAGS_FOLDER/dbt_staging.py', '--cfg-path', '/tmp/tmpdouq3eva']
+[2025-04-19T15:23:09.985+0000] {standard_task_runner.py:105} INFO - Job 218: Subtask dbt_staging
+[2025-04-19T15:23:10.183+0000] {task_command.py:467} INFO - Running <TaskInstance: dbt_etl_pipeline_staging.dbt_staging manual__2025-04-19T15:20:13.235992+00:00 [running]> on host 27536697ee14
+[2025-04-19T15:23:10.421+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='azizjon' AIRFLOW_CTX_DAG_ID='dbt_etl_pipeline_staging' AIRFLOW_CTX_TASK_ID='dbt_staging' AIRFLOW_CTX_EXECUTION_DATE='2025-04-19T15:20:13.235992+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-19T15:20:13.235992+00:00'
+[2025-04-19T15:23:10.422+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-19T15:23:10.433+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-04-19T15:23:10.435+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '\n        export PATH=/home/airflow/.local/bin:$PATH\n        cd /opt/airflow/commerce_dbt\n        dbt run --select staging --profiles-dir .\n        ']
+[2025-04-19T15:23:10.442+0000] {subprocess.py:99} INFO - Output:
+[2025-04-19T15:23:12.781+0000] {subprocess.py:106} INFO - [0m15:23:12  Running with dbt=1.7.0
+[2025-04-19T15:23:13.027+0000] {subprocess.py:106} INFO - [0m15:23:13  Registered adapter: postgres=1.7.0
+[2025-04-19T15:23:13.540+0000] {subprocess.py:106} INFO - [0m15:23:13  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2025-04-19T15:23:13.541+0000] {subprocess.py:106} INFO - There are 1 unused configuration paths:
+[2025-04-19T15:23:13.541+0000] {subprocess.py:106} INFO - - seeds.initial_dataset
+[2025-04-19T15:23:13.603+0000] {subprocess.py:106} INFO - [0m15:23:13  Found 13 models, 1 snapshot, 6 seeds, 43 tests, 6 sources, 0 exposures, 0 metrics, 401 macros, 0 groups, 0 semantic models
+[2025-04-19T15:23:13.609+0000] {subprocess.py:106} INFO - [0m15:23:13
+[2025-04-19T15:23:14.077+0000] {subprocess.py:106} INFO - [0m15:23:14  Concurrency: 4 threads (target='dev')
+[2025-04-19T15:23:14.078+0000] {subprocess.py:106} INFO - [0m15:23:14
+[2025-04-19T15:23:14.088+0000] {subprocess.py:106} INFO - [0m15:23:14  1 of 6 START sql table model commerce_staging.stg_customers .................... [RUN]
+[2025-04-19T15:23:14.090+0000] {subprocess.py:106} INFO - [0m15:23:14  2 of 6 START sql table model commerce_staging.stg_order_items .................. [RUN]
+[2025-04-19T15:23:14.090+0000] {subprocess.py:106} INFO - [0m15:23:14  3 of 6 START sql table model commerce_staging.stg_orders ....................... [RUN]
+[2025-04-19T15:23:14.092+0000] {subprocess.py:106} INFO - [0m15:23:14  4 of 6 START sql table model commerce_staging.stg_product_categories ........... [RUN]
+[2025-04-19T15:23:14.400+0000] {subprocess.py:106} INFO - [0m15:23:14  4 of 6 OK created sql table model commerce_staging.stg_product_categories ...... [[32mSELECT 4[0m in 0.30s]
+[2025-04-19T15:23:14.407+0000] {subprocess.py:106} INFO - [0m15:23:14  3 of 6 OK created sql table model commerce_staging.stg_orders .................. [[32mSELECT 7001[0m in 0.30s]
+[2025-04-19T15:23:14.418+0000] {subprocess.py:106} INFO - [0m15:23:14  5 of 6 START sql table model commerce_staging.stg_products ..................... [RUN]
+[2025-04-19T15:23:14.420+0000] {subprocess.py:106} INFO - [0m15:23:14  6 of 6 START sql table model commerce_staging.stg_stores ....................... [RUN]
+[2025-04-19T15:23:14.511+0000] {subprocess.py:106} INFO - [0m15:23:14  1 of 6 OK created sql table model commerce_staging.stg_customers ............... [[32mSELECT 1000[0m in 0.42s]
+[2025-04-19T15:23:14.513+0000] {subprocess.py:106} INFO - [0m15:23:14  2 of 6 OK created sql table model commerce_staging.stg_order_items ............. [[32mSELECT 10001[0m in 0.42s]
+[2025-04-19T15:23:14.629+0000] {subprocess.py:106} INFO - [0m15:23:14  5 of 6 OK created sql table model commerce_staging.stg_products ................ [[32mSELECT 17[0m in 0.20s]
+[2025-04-19T15:23:14.635+0000] {subprocess.py:106} INFO - [0m15:23:14  6 of 6 OK created sql table model commerce_staging.stg_stores .................. [[32mSELECT 5[0m in 0.20s]
+[2025-04-19T15:23:14.701+0000] {subprocess.py:106} INFO - [0m15:23:14
+[2025-04-19T15:23:14.702+0000] {subprocess.py:106} INFO - [0m15:23:14  Finished running 6 table models in 0 hours 0 minutes and 1.09 seconds (1.09s).
+[2025-04-19T15:23:14.736+0000] {subprocess.py:106} INFO - [0m15:23:14
+[2025-04-19T15:23:14.737+0000] {subprocess.py:106} INFO - [0m15:23:14  [32mCompleted successfully[0m
+[2025-04-19T15:23:14.738+0000] {subprocess.py:106} INFO - [0m15:23:14
+[2025-04-19T15:23:14.740+0000] {subprocess.py:106} INFO - [0m15:23:14  Done. PASS=6 WARN=0 ERROR=0 SKIP=0 TOTAL=6
+[2025-04-19T15:23:16.107+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-04-19T15:23:16.245+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-19T15:23:16.246+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=dbt_etl_pipeline_staging, task_id=dbt_staging, run_id=manual__2025-04-19T15:20:13.235992+00:00, execution_date=20250419T152013, start_date=20250419T152309, end_date=20250419T152316
+[2025-04-19T15:23:16.404+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-19T15:23:16.463+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-19T15:23:16.468+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

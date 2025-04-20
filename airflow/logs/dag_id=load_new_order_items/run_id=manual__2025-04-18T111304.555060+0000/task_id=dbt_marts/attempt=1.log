@@ -1,0 +1,19 @@
+[2025-04-18T11:23:29.657+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-18T11:23:29.717+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: load_new_order_items.dbt_marts manual__2025-04-18T11:13:04.555060+00:00 [queued]>
+[2025-04-18T11:23:29.730+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: load_new_order_items.dbt_marts manual__2025-04-18T11:13:04.555060+00:00 [queued]>
+[2025-04-18T11:23:29.733+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-04-18T11:23:29.751+0000] {taskinstance.py:2890} INFO - Executing <Task(TriggerDagRunOperator): dbt_marts> on 2025-04-18 11:13:04.555060+00:00
+[2025-04-18T11:23:29.758+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'load_new_order_items', 'dbt_marts', 'manual__2025-04-18T11:13:04.555060+00:00', '--job-id', '97', '--raw', '--subdir', 'DAGS_FOLDER/store_to_sql_order_items.py', '--cfg-path', '/tmp/tmp241bj0g3']
+[2025-04-18T11:23:29.760+0000] {standard_task_runner.py:105} INFO - Job 97: Subtask dbt_marts
+[2025-04-18T11:23:29.761+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=397) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-18T11:23:29.764+0000] {standard_task_runner.py:72} INFO - Started process 398 to run task
+[2025-04-18T11:23:29.940+0000] {task_command.py:467} INFO - Running <TaskInstance: load_new_order_items.dbt_marts manual__2025-04-18T11:13:04.555060+00:00 [running]> on host 9c8f13362ff5
+[2025-04-18T11:23:30.161+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='azizjon' AIRFLOW_CTX_DAG_ID='load_new_order_items' AIRFLOW_CTX_TASK_ID='dbt_marts' AIRFLOW_CTX_EXECUTION_DATE='2025-04-18T11:13:04.555060+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-18T11:13:04.555060+00:00'
+[2025-04-18T11:23:30.162+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-18T11:23:30.503+0000] {trigger_dagrun.py:257} INFO - Waiting for dbt_etl_pipeline_mart on 2025-04-18 11:13:04.555060+00:00 to become allowed state ['success'] ...
+[2025-04-18T11:23:35.562+0000] {trigger_dagrun.py:271} INFO - dbt_etl_pipeline_mart finished with allowed state success
+[2025-04-18T11:23:35.608+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-18T11:23:35.609+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=load_new_order_items, task_id=dbt_marts, run_id=manual__2025-04-18T11:13:04.555060+00:00, execution_date=20250418T111304, start_date=20250418T112329, end_date=20250418T112335
+[2025-04-18T11:23:35.731+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-18T11:23:35.796+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-18T11:23:35.798+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,40 @@
+[2025-04-18T11:26:05.014+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-18T11:26:05.088+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_etl_pipeline_mart.dbt_marts_business manual__2025-04-18T11:25:57.758337+00:00 [queued]>
+[2025-04-18T11:26:05.104+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_etl_pipeline_mart.dbt_marts_business manual__2025-04-18T11:25:57.758337+00:00 [queued]>
+[2025-04-18T11:26:05.105+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-04-18T11:26:05.124+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): dbt_marts_business> on 2025-04-18 11:25:57.758337+00:00
+[2025-04-18T11:26:05.131+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'dbt_etl_pipeline_mart', 'dbt_marts_business', 'manual__2025-04-18T11:25:57.758337+00:00', '--job-id', '107', '--raw', '--subdir', 'DAGS_FOLDER/dbt_marts.py', '--cfg-path', '/tmp/tmpfhj1semw']
+[2025-04-18T11:26:05.133+0000] {standard_task_runner.py:105} INFO - Job 107: Subtask dbt_marts_business
+[2025-04-18T11:26:05.134+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=696) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-18T11:26:05.135+0000] {standard_task_runner.py:72} INFO - Started process 697 to run task
+[2025-04-18T11:26:05.318+0000] {task_command.py:467} INFO - Running <TaskInstance: dbt_etl_pipeline_mart.dbt_marts_business manual__2025-04-18T11:25:57.758337+00:00 [running]> on host 9c8f13362ff5
+[2025-04-18T11:26:05.672+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='azizjon' AIRFLOW_CTX_DAG_ID='dbt_etl_pipeline_mart' AIRFLOW_CTX_TASK_ID='dbt_marts_business' AIRFLOW_CTX_EXECUTION_DATE='2025-04-18T11:25:57.758337+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-18T11:25:57.758337+00:00'
+[2025-04-18T11:26:05.673+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-18T11:26:05.685+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-04-18T11:26:05.687+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '\n        export PATH=/home/airflow/.local/bin:$PATH\n        cd /opt/airflow/commerce_dbt\n        dbt run --select marts.business --profiles-dir .\n        ']
+[2025-04-18T11:26:05.696+0000] {subprocess.py:99} INFO - Output:
+[2025-04-18T11:26:07.932+0000] {subprocess.py:106} INFO - [0m11:26:07  Running with dbt=1.7.0
+[2025-04-18T11:26:08.208+0000] {subprocess.py:106} INFO - [0m11:26:08  Registered adapter: postgres=1.7.0
+[2025-04-18T11:26:08.683+0000] {subprocess.py:106} INFO - [0m11:26:08  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2025-04-18T11:26:08.684+0000] {subprocess.py:106} INFO - There are 1 unused configuration paths:
+[2025-04-18T11:26:08.685+0000] {subprocess.py:106} INFO - - seeds.initial_dataset
+[2025-04-18T11:26:08.726+0000] {subprocess.py:106} INFO - [0m11:26:08  Found 12 models, 1 snapshot, 6 seeds, 43 tests, 6 sources, 0 exposures, 0 metrics, 401 macros, 0 groups, 0 semantic models
+[2025-04-18T11:26:08.729+0000] {subprocess.py:106} INFO - [0m11:26:08
+[2025-04-18T11:26:09.127+0000] {subprocess.py:106} INFO - [0m11:26:09  Concurrency: 4 threads (target='dev')
+[2025-04-18T11:26:09.127+0000] {subprocess.py:106} INFO - [0m11:26:09
+[2025-04-18T11:26:09.137+0000] {subprocess.py:106} INFO - [0m11:26:09  1 of 2 START sql table model commerce_business.customer_orders ................. [RUN]
+[2025-04-18T11:26:09.137+0000] {subprocess.py:106} INFO - [0m11:26:09  2 of 2 START sql table model commerce_business.product_sales ................... [RUN]
+[2025-04-18T11:26:09.339+0000] {subprocess.py:106} INFO - [0m11:26:09  1 of 2 OK created sql table model commerce_business.customer_orders ............ [[32mSELECT 1000[0m in 0.20s]
+[2025-04-18T11:26:09.346+0000] {subprocess.py:106} INFO - [0m11:26:09  2 of 2 OK created sql table model commerce_business.product_sales .............. [[32mSELECT 17[0m in 0.21s]
+[2025-04-18T11:26:09.410+0000] {subprocess.py:106} INFO - [0m11:26:09
+[2025-04-18T11:26:09.411+0000] {subprocess.py:106} INFO - [0m11:26:09  Finished running 2 table models in 0 hours 0 minutes and 0.68 seconds (0.68s).
+[2025-04-18T11:26:09.442+0000] {subprocess.py:106} INFO - [0m11:26:09
+[2025-04-18T11:26:09.443+0000] {subprocess.py:106} INFO - [0m11:26:09  [32mCompleted successfully[0m
+[2025-04-18T11:26:09.444+0000] {subprocess.py:106} INFO - [0m11:26:09
+[2025-04-18T11:26:09.445+0000] {subprocess.py:106} INFO - [0m11:26:09  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+[2025-04-18T11:26:10.429+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-04-18T11:26:10.561+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-18T11:26:10.562+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=dbt_etl_pipeline_mart, task_id=dbt_marts_business, run_id=manual__2025-04-18T11:25:57.758337+00:00, execution_date=20250418T112557, start_date=20250418T112605, end_date=20250418T112610
+[2025-04-18T11:26:10.750+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-18T11:26:10.823+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-18T11:26:10.826+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

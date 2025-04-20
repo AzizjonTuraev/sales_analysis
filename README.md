@@ -1,0 +1,153 @@
+# Book Recommendation System
+
+This is a full end-to-end project, which implements builds ETL Pipeline, makes analysis & Dashboards and then build Prediction Model for Sales Analysis dataset. The dataset contains 6 CSV files: 
+- `customers.csv`, 
+- `order_items.csv`, 
+- `orders.csv`
+- `product_categories.csv`, 
+- `products.csv`, 
+- `stores.csv`
+
+### Project Structure Overview
+![workflow](temp/pics/workflow.png)
+<!-- <img src="temp/pics/workflow.png" alt="Workflow Diagram" width="500" /> -->
+### Entity Relationship
+![entity_relationship](temp/pics/entity_relationship.png)
+
+## Features
+- **ELT using Apache Airflow and DBT Tool**: Automating ELT process.
+- **Connecting to other Data&Business Analysis Tools**: Connecting Apache Airflow to PostSQL and PostSQL to PowerBI.
+- **TimeSeries Prediction**: Different Machine Learning Models and ARIMA Model are built for sale prediction and the best model - LightGBM - has been selected.
+- **FastAPI Deployment**: The recommendation system was deployed using FastAPI.
+- **Docker Support**: Created a Dockerfile for easy deployment..
+
+## Running the Application
+
+You can run the recommendation system either manually or by using Docker. Below are the instructions for both methods:
+
+### Method 1: Execution using Docker
+
+1. **Initiate Apache Airflow**:
+
+    ```bash
+    docker compose up airflow-init
+    docker compose up
+    ```
+
+2. **Connecting to external Analysis Tools**:
+
+    Now you can go to the http://localhost:8080/home on your browser to access to Apache Airflow.
+    You also need to connect Apache Airflow to SQL (any Relational SQL databases - in this case Dbeawer is used) and SQL to PowerBI.
+
+    Please note, to generate dbt docs - documentation use different port than 8080. This is because airflow-webserver uses it. You could use for example, 8081.
+    dbt_docs_generation DAG on Apache Airflow is for dbt doc generation only. You could access it with the code below
+
+    ```bash
+    dbt docs serve --port 8081
+    ```
+
+
+3. **Build the Docker image**:
+
+    ```bash
+    docker build -t sales_project .
+    docker run -p 8000:8000 sales_project
+    ```
+
+    This will expose the FastAPI app on `http://127.0.0.1:8000`.
+
+4. **Access the application**:
+    - **FastAPI Docs**: You can access the auto-generated documentation and interact with the FastAPI at `http://localhost:8000/docs#/default`.
+
+## Available API Functions
+
+The API exposes four main functions, which are also accessible through the web interface:
+
+**weekly_predictions**: This returns a weekly prediction for a specific product. Please look at the available product names below or to the products.csv file:
+- iPhone
+- Samsung
+- Xiaomi
+- HP
+- MacBook
+- Acer
+- Dell
+- Toaster
+- Electric Kettle
+- Mixer
+- Microwave Oven
+- Coffee Maker
+- Refrigerator
+- Stove
+- Range Hood
+- Dish Washer
+
+## Project Structure
+
+```bash
+recommendation_books/
+│
+├── Dockerfile          
+├── requirements.txt         
+├── README.md
+├── powerbi_commerce.pdf
+├── powerbi_commerce.pbix
+├── flowchart.pdf
+│
+├── airflow/
+│── ── docker-compose.yaml
+│── ── dags/
+│── ── ../
+│
+├── commerce_dbt/
+│── ── user.yml
+│── ── dbt_project.yml
+│── ── profiles.yml
+│── ── models/
+│── ── ── marts/
+│── ── ── ── business/
+│── ── ── ── core/
+│── ── ── staging/
+│── ── ../
+│
+├── dataset/
+│── ── initial_dataset/
+│── ── new_dataset/
+│
+├── model/
+│── ── ml_analytics_202504181528.csv # saved from sql - from Database
+│── ── mae_ml_model.csv
+│── ── machine_learning.ipynb
+│── ── products_df/
+│
+├── server/
+│── ── server_models/
+├── requirements.txt
+├── server_api.py
+├── server_util_functions.py
+├── server_utils.py
+│
+├── temp/
+│── ── ../
+│
+```
+
+## Project Screenshots
+
+### Apache Airflow - ETL
+![Screenshot](temp/pics/airflow.png)
+
+### DBT Tool Documentation
+![Screenshot](temp/pics/dbt_tool.png)
+
+### Power BI
+![Screenshot](temp/pics/powerBI.png)
+
+### MLFlow
+![Screenshot](temp/pics/mlflow.png)
+
+### Machine Learning Statistics
+![Screenshot](temp/pics/ml_statistics.png)
+
+### Postman API Testing - Post Method
+![Screenshot](temp/pics/postman.png)
+

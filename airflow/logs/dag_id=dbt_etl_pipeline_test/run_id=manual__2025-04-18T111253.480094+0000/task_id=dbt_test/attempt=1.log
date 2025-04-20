@@ -1,0 +1,218 @@
+[2025-04-18T11:12:54.579+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-18T11:12:54.662+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_etl_pipeline_test.dbt_test manual__2025-04-18T11:12:53.480094+00:00 [queued]>
+[2025-04-18T11:12:54.677+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_etl_pipeline_test.dbt_test manual__2025-04-18T11:12:53.480094+00:00 [queued]>
+[2025-04-18T11:12:54.678+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-04-18T11:12:54.694+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): dbt_test> on 2025-04-18 11:12:53.480094+00:00
+[2025-04-18T11:12:54.702+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'dbt_etl_pipeline_test', 'dbt_test', 'manual__2025-04-18T11:12:53.480094+00:00', '--job-id', '83', '--raw', '--subdir', 'DAGS_FOLDER/dbt_test.py', '--cfg-path', '/tmp/tmpzzwkr_0e']
+[2025-04-18T11:12:54.705+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=355) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-18T11:12:54.705+0000] {standard_task_runner.py:105} INFO - Job 83: Subtask dbt_test
+[2025-04-18T11:12:54.705+0000] {standard_task_runner.py:72} INFO - Started process 357 to run task
+[2025-04-18T11:12:54.937+0000] {task_command.py:467} INFO - Running <TaskInstance: dbt_etl_pipeline_test.dbt_test manual__2025-04-18T11:12:53.480094+00:00 [running]> on host f693ba064550
+[2025-04-18T11:12:55.359+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='azizjon' AIRFLOW_CTX_DAG_ID='dbt_etl_pipeline_test' AIRFLOW_CTX_TASK_ID='dbt_test' AIRFLOW_CTX_EXECUTION_DATE='2025-04-18T11:12:53.480094+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-18T11:12:53.480094+00:00'
+[2025-04-18T11:12:55.360+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-18T11:12:55.373+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-04-18T11:12:55.376+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '\n        export PATH=/home/airflow/.local/bin:$PATH\n        cd /opt/airflow/commerce_dbt\n        dbt test --profiles-dir .\n        ']
+[2025-04-18T11:12:55.385+0000] {subprocess.py:99} INFO - Output:
+[2025-04-18T11:12:58.066+0000] {subprocess.py:106} INFO - [0m11:12:58  Running with dbt=1.7.0
+[2025-04-18T11:12:58.354+0000] {subprocess.py:106} INFO - [0m11:12:58  Registered adapter: postgres=1.7.0
+[2025-04-18T11:12:58.929+0000] {subprocess.py:106} INFO - [0m11:12:58  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2025-04-18T11:12:58.930+0000] {subprocess.py:106} INFO - There are 1 unused configuration paths:
+[2025-04-18T11:12:58.930+0000] {subprocess.py:106} INFO - - seeds.initial_dataset
+[2025-04-18T11:12:58.990+0000] {subprocess.py:106} INFO - [0m11:12:58  Found 12 models, 1 snapshot, 6 seeds, 43 tests, 6 sources, 0 exposures, 0 metrics, 401 macros, 0 groups, 0 semantic models
+[2025-04-18T11:12:58.996+0000] {subprocess.py:106} INFO - [0m11:12:58
+[2025-04-18T11:12:59.359+0000] {subprocess.py:106} INFO - [0m11:12:59  Concurrency: 4 threads (target='dev')
+[2025-04-18T11:12:59.360+0000] {subprocess.py:106} INFO - [0m11:12:59
+[2025-04-18T11:12:59.374+0000] {subprocess.py:106} INFO - [0m11:12:59  1 of 43 START test accepted_values_dim_customers_customer_segment__New__One_time__Regular__Loyal  [RUN]
+[2025-04-18T11:12:59.375+0000] {subprocess.py:106} INFO - [0m11:12:59  2 of 43 START test accepted_values_dim_products_price_segment__Budget__Standard__Premium  [RUN]
+[2025-04-18T11:12:59.377+0000] {subprocess.py:106} INFO - [0m11:12:59  3 of 43 START test accepted_values_stg_customers_gender__Male__Female .......... [RUN]
+[2025-04-18T11:12:59.379+0000] {subprocess.py:106} INFO - [0m11:12:59  4 of 43 START test accepted_values_stg_order_items_quantity__1__2__3__4__5 ..... [RUN]
+[2025-04-18T11:12:59.620+0000] {subprocess.py:106} INFO - [0m11:12:59  1 of 43 PASS accepted_values_dim_customers_customer_segment__New__One_time__Regular__Loyal  [[32mPASS[0m in 0.24s]
+[2025-04-18T11:12:59.637+0000] {subprocess.py:106} INFO - [0m11:12:59  5 of 43 START test not_null_customer_orders_customer_id ........................ [RUN]
+[2025-04-18T11:12:59.643+0000] {subprocess.py:106} INFO - [0m11:12:59  4 of 43 PASS accepted_values_stg_order_items_quantity__1__2__3__4__5 ........... [[32mPASS[0m in 0.26s]
+[2025-04-18T11:12:59.668+0000] {subprocess.py:106} INFO - [0m11:12:59  6 of 43 START test not_null_customer_orders_order_count ........................ [RUN]
+[2025-04-18T11:12:59.672+0000] {subprocess.py:106} INFO - [0m11:12:59  3 of 43 PASS accepted_values_stg_customers_gender__Male__Female ................ [[32mPASS[0m in 0.29s]
+[2025-04-18T11:12:59.676+0000] {subprocess.py:106} INFO - [0m11:12:59  2 of 43 PASS accepted_values_dim_products_price_segment__Budget__Standard__Premium  [[32mPASS[0m in 0.30s]
+[2025-04-18T11:12:59.696+0000] {subprocess.py:106} INFO - [0m11:12:59  7 of 43 START test not_null_dim_customers_customer_id .......................... [RUN]
+[2025-04-18T11:12:59.698+0000] {subprocess.py:106} INFO - [0m11:12:59  8 of 43 START test not_null_dim_products_product_id ............................ [RUN]
+[2025-04-18T11:12:59.871+0000] {subprocess.py:106} INFO - [0m11:12:59  5 of 43 ERROR not_null_customer_orders_customer_id ............................. [[31mERROR[0m in 0.23s]
+[2025-04-18T11:12:59.882+0000] {subprocess.py:106} INFO - [0m11:12:59  9 of 43 START test not_null_dim_products_product_name .......................... [RUN]
+[2025-04-18T11:12:59.920+0000] {subprocess.py:106} INFO - [0m11:12:59  6 of 43 ERROR not_null_customer_orders_order_count ............................. [[31mERROR[0m in 0.25s]
+[2025-04-18T11:12:59.924+0000] {subprocess.py:106} INFO - [0m11:12:59  7 of 43 PASS not_null_dim_customers_customer_id ................................ [[32mPASS[0m in 0.22s]
+[2025-04-18T11:12:59.931+0000] {subprocess.py:106} INFO - [0m11:12:59  10 of 43 START test not_null_dim_stores_store_id ............................... [RUN]
+[2025-04-18T11:12:59.934+0000] {subprocess.py:106} INFO - [0m11:12:59  8 of 43 PASS not_null_dim_products_product_id .................................. [[32mPASS[0m in 0.23s]
+[2025-04-18T11:12:59.945+0000] {subprocess.py:106} INFO - [0m11:12:59  11 of 43 START test not_null_fct_orders_total_price ............................ [RUN]
+[2025-04-18T11:12:59.969+0000] {subprocess.py:106} INFO - [0m11:12:59  12 of 43 START test not_null_product_sales_product_id .......................... [RUN]
+[2025-04-18T11:13:00.148+0000] {subprocess.py:106} INFO - [0m11:13:00  9 of 43 PASS not_null_dim_products_product_name ................................ [[32mPASS[0m in 0.26s]
+[2025-04-18T11:13:00.153+0000] {subprocess.py:106} INFO - [0m11:13:00  13 of 43 START test not_null_product_sales_total_revenue ....................... [RUN]
+[2025-04-18T11:13:00.189+0000] {subprocess.py:106} INFO - [0m11:13:00  12 of 43 ERROR not_null_product_sales_product_id ............................... [[31mERROR[0m in 0.22s]
+[2025-04-18T11:13:00.192+0000] {subprocess.py:106} INFO - [0m11:13:00  14 of 43 START test not_null_product_sales_total_units_sold .................... [RUN]
+[2025-04-18T11:13:00.273+0000] {subprocess.py:106} INFO - [0m11:13:00  13 of 43 ERROR not_null_product_sales_total_revenue ............................ [[31mERROR[0m in 0.12s]
+[2025-04-18T11:13:00.276+0000] {subprocess.py:106} INFO - [0m11:13:00  15 of 43 START test not_null_stg_customers_customer_id ......................... [RUN]
+[2025-04-18T11:13:00.316+0000] {subprocess.py:106} INFO - [0m11:13:00  10 of 43 PASS not_null_dim_stores_store_id ..................................... [[32mPASS[0m in 0.38s]
+[2025-04-18T11:13:00.324+0000] {subprocess.py:106} INFO - [0m11:13:00  16 of 43 START test not_null_stg_customers_name ................................ [RUN]
+[2025-04-18T11:13:00.331+0000] {subprocess.py:106} INFO - [0m11:13:00  11 of 43 PASS not_null_fct_orders_total_price .................................. [[32mPASS[0m in 0.38s]
+[2025-04-18T11:13:00.343+0000] {subprocess.py:106} INFO - [0m11:13:00  14 of 43 ERROR not_null_product_sales_total_units_sold ......................... [[31mERROR[0m in 0.15s]
+[2025-04-18T11:13:00.347+0000] {subprocess.py:106} INFO - [0m11:13:00  17 of 43 START test not_null_stg_order_items_order_item_id ..................... [RUN]
+[2025-04-18T11:13:00.351+0000] {subprocess.py:106} INFO - [0m11:13:00  18 of 43 START test not_null_stg_orders_order_date ............................. [RUN]
+[2025-04-18T11:13:00.437+0000] {subprocess.py:106} INFO - [0m11:13:00  15 of 43 PASS not_null_stg_customers_customer_id ............................... [[32mPASS[0m in 0.16s]
+[2025-04-18T11:13:00.441+0000] {subprocess.py:106} INFO - [0m11:13:00  19 of 43 START test not_null_stg_orders_order_id ............................... [RUN]
+[2025-04-18T11:13:00.511+0000] {subprocess.py:106} INFO - [0m11:13:00  16 of 43 PASS not_null_stg_customers_name ...................................... [[32mPASS[0m in 0.18s]
+[2025-04-18T11:13:00.514+0000] {subprocess.py:106} INFO - [0m11:13:00  17 of 43 PASS not_null_stg_order_items_order_item_id ........................... [[32mPASS[0m in 0.16s]
+[2025-04-18T11:13:00.518+0000] {subprocess.py:106} INFO - [0m11:13:00  18 of 43 PASS not_null_stg_orders_order_date ................................... [[32mPASS[0m in 0.16s]
+[2025-04-18T11:13:00.527+0000] {subprocess.py:106} INFO - [0m11:13:00  20 of 43 START test not_null_stg_product_categories_product_categories ......... [RUN]
+[2025-04-18T11:13:00.529+0000] {subprocess.py:106} INFO - [0m11:13:00  21 of 43 START test not_null_stg_product_categories_product_categories_id ...... [RUN]
+[2025-04-18T11:13:00.534+0000] {subprocess.py:106} INFO - [0m11:13:00  22 of 43 START test not_null_stg_products_price ................................ [RUN]
+[2025-04-18T11:13:00.575+0000] {subprocess.py:106} INFO - [0m11:13:00  19 of 43 PASS not_null_stg_orders_order_id ..................................... [[32mPASS[0m in 0.13s]
+[2025-04-18T11:13:00.590+0000] {subprocess.py:106} INFO - [0m11:13:00  23 of 43 START test not_null_stg_products_product_id ........................... [RUN]
+[2025-04-18T11:13:00.709+0000] {subprocess.py:106} INFO - [0m11:13:00  21 of 43 PASS not_null_stg_product_categories_product_categories_id ............ [[32mPASS[0m in 0.17s]
+[2025-04-18T11:13:00.714+0000] {subprocess.py:106} INFO - [0m11:13:00  20 of 43 PASS not_null_stg_product_categories_product_categories ............... [[32mPASS[0m in 0.18s]
+[2025-04-18T11:13:00.721+0000] {subprocess.py:106} INFO - [0m11:13:00  24 of 43 START test not_null_stg_products_product_name ......................... [RUN]
+[2025-04-18T11:13:00.727+0000] {subprocess.py:106} INFO - [0m11:13:00  25 of 43 START test not_null_stg_stores_location ............................... [RUN]
+[2025-04-18T11:13:00.731+0000] {subprocess.py:106} INFO - [0m11:13:00  22 of 43 PASS not_null_stg_products_price ...................................... [[32mPASS[0m in 0.19s]
+[2025-04-18T11:13:00.804+0000] {subprocess.py:106} INFO - [0m11:13:00  26 of 43 START test not_null_stg_stores_store_id ............................... [RUN]
+[2025-04-18T11:13:00.808+0000] {subprocess.py:106} INFO - [0m11:13:00  23 of 43 PASS not_null_stg_products_product_id ................................. [[32mPASS[0m in 0.22s]
+[2025-04-18T11:13:00.822+0000] {subprocess.py:106} INFO - [0m11:13:00  27 of 43 START test relationships_fct_orders_customer_id__customer_id__ref_dim_customers_  [RUN]
+[2025-04-18T11:13:00.959+0000] {subprocess.py:106} INFO - [0m11:13:00  25 of 43 PASS not_null_stg_stores_location ..................................... [[32mPASS[0m in 0.23s]
+[2025-04-18T11:13:00.969+0000] {subprocess.py:106} INFO - [0m11:13:00  28 of 43 START test relationships_fct_orders_product_id__product_id__ref_dim_products_  [RUN]
+[2025-04-18T11:13:00.971+0000] {subprocess.py:106} INFO - [0m11:13:00  24 of 43 PASS not_null_stg_products_product_name ............................... [[32mPASS[0m in 0.25s]
+[2025-04-18T11:13:00.989+0000] {subprocess.py:106} INFO - [0m11:13:00  29 of 43 START test relationships_fct_orders_store_id__store_id__ref_dim_stores_  [RUN]
+[2025-04-18T11:13:00.994+0000] {subprocess.py:106} INFO - [0m11:13:00  26 of 43 PASS not_null_stg_stores_store_id ..................................... [[32mPASS[0m in 0.19s]
+[2025-04-18T11:13:01.011+0000] {subprocess.py:106} INFO - [0m11:13:01  30 of 43 START test relationships_stg_order_items_order_id__order_id__ref_stg_orders_  [RUN]
+[2025-04-18T11:13:01.020+0000] {subprocess.py:106} INFO - [0m11:13:01  27 of 43 PASS relationships_fct_orders_customer_id__customer_id__ref_dim_customers_  [[32mPASS[0m in 0.19s]
+[2025-04-18T11:13:01.033+0000] {subprocess.py:106} INFO - [0m11:13:01  31 of 43 START test relationships_stg_order_items_product_id__product_id__ref_stg_products_  [RUN]
+[2025-04-18T11:13:01.159+0000] {subprocess.py:106} INFO - [0m11:13:01  28 of 43 PASS relationships_fct_orders_product_id__product_id__ref_dim_products_  [[32mPASS[0m in 0.19s]
+[2025-04-18T11:13:01.168+0000] {subprocess.py:106} INFO - [0m11:13:01  32 of 43 START test relationships_stg_orders_customer_id__customer_id__ref_stg_customers_  [RUN]
+[2025-04-18T11:13:01.195+0000] {subprocess.py:106} INFO - [0m11:13:01  29 of 43 PASS relationships_fct_orders_store_id__store_id__ref_dim_stores_ ..... [[32mPASS[0m in 0.20s]
+[2025-04-18T11:13:01.197+0000] {subprocess.py:106} INFO - [0m11:13:01  30 of 43 PASS relationships_stg_order_items_order_id__order_id__ref_stg_orders_  [[32mPASS[0m in 0.18s]
+[2025-04-18T11:13:01.207+0000] {subprocess.py:106} INFO - [0m11:13:01  33 of 43 START test relationships_stg_orders_store_id__store_id__ref_stg_stores_  [RUN]
+[2025-04-18T11:13:01.209+0000] {subprocess.py:106} INFO - [0m11:13:01  34 of 43 START test relationships_stg_products_product_categories_id__product_categories_id__ref_stg_product_categories_  [RUN]
+[2025-04-18T11:13:01.230+0000] {subprocess.py:106} INFO - [0m11:13:01  31 of 43 PASS relationships_stg_order_items_product_id__product_id__ref_stg_products_  [[32mPASS[0m in 0.20s]
+[2025-04-18T11:13:01.242+0000] {subprocess.py:106} INFO - [0m11:13:01  35 of 43 START test unique_dim_customers_customer_id ........................... [RUN]
+[2025-04-18T11:13:01.380+0000] {subprocess.py:106} INFO - [0m11:13:01  33 of 43 PASS relationships_stg_orders_store_id__store_id__ref_stg_stores_ ..... [[32mPASS[0m in 0.17s]
+[2025-04-18T11:13:01.387+0000] {subprocess.py:106} INFO - [0m11:13:01  36 of 43 START test unique_dim_products_product_id ............................. [RUN]
+[2025-04-18T11:13:01.408+0000] {subprocess.py:106} INFO - [0m11:13:01  34 of 43 PASS relationships_stg_products_product_categories_id__product_categories_id__ref_stg_product_categories_  [[32mPASS[0m in 0.19s]
+[2025-04-18T11:13:01.412+0000] {subprocess.py:106} INFO - [0m11:13:01  35 of 43 PASS unique_dim_customers_customer_id ................................. [[32mPASS[0m in 0.17s]
+[2025-04-18T11:13:01.418+0000] {subprocess.py:106} INFO - [0m11:13:01  37 of 43 START test unique_dim_stores_store_id ................................. [RUN]
+[2025-04-18T11:13:01.420+0000] {subprocess.py:106} INFO - [0m11:13:01  38 of 43 START test unique_stg_customers_customer_id ........................... [RUN]
+[2025-04-18T11:13:01.448+0000] {subprocess.py:106} INFO - [0m11:13:01  32 of 43 PASS relationships_stg_orders_customer_id__customer_id__ref_stg_customers_  [[32mPASS[0m in 0.28s]
+[2025-04-18T11:13:01.453+0000] {subprocess.py:106} INFO - [0m11:13:01  39 of 43 START test unique_stg_order_items_order_item_id ....................... [RUN]
+[2025-04-18T11:13:01.562+0000] {subprocess.py:106} INFO - [0m11:13:01  36 of 43 PASS unique_dim_products_product_id ................................... [[32mPASS[0m in 0.17s]
+[2025-04-18T11:13:01.567+0000] {subprocess.py:106} INFO - [0m11:13:01  40 of 43 START test unique_stg_orders_order_id ................................. [RUN]
+[2025-04-18T11:13:01.591+0000] {subprocess.py:106} INFO - [0m11:13:01  37 of 43 PASS unique_dim_stores_store_id ....................................... [[32mPASS[0m in 0.17s]
+[2025-04-18T11:13:01.598+0000] {subprocess.py:106} INFO - [0m11:13:01  41 of 43 START test unique_stg_product_categories_product_categories_id ........ [RUN]
+[2025-04-18T11:13:01.612+0000] {subprocess.py:106} INFO - [0m11:13:01  39 of 43 PASS unique_stg_order_items_order_item_id ............................. [[32mPASS[0m in 0.16s]
+[2025-04-18T11:13:01.621+0000] {subprocess.py:106} INFO - [0m11:13:01  42 of 43 START test unique_stg_products_product_id ............................. [RUN]
+[2025-04-18T11:13:01.684+0000] {subprocess.py:106} INFO - [0m11:13:01  38 of 43 PASS unique_stg_customers_customer_id ................................. [[32mPASS[0m in 0.26s]
+[2025-04-18T11:13:01.688+0000] {subprocess.py:106} INFO - [0m11:13:01  43 of 43 START test unique_stg_stores_store_id ................................. [RUN]
+[2025-04-18T11:13:01.719+0000] {subprocess.py:106} INFO - [0m11:13:01  40 of 43 PASS unique_stg_orders_order_id ....................................... [[32mPASS[0m in 0.15s]
+[2025-04-18T11:13:01.738+0000] {subprocess.py:106} INFO - [0m11:13:01  42 of 43 PASS unique_stg_products_product_id ................................... [[32mPASS[0m in 0.12s]
+[2025-04-18T11:13:01.807+0000] {subprocess.py:106} INFO - [0m11:13:01  43 of 43 PASS unique_stg_stores_store_id ....................................... [[32mPASS[0m in 0.12s]
+[2025-04-18T11:13:01.835+0000] {subprocess.py:106} INFO - [0m11:13:01  41 of 43 PASS unique_stg_product_categories_product_categories_id .............. [[32mPASS[0m in 0.23s]
+[2025-04-18T11:13:01.919+0000] {subprocess.py:106} INFO - [0m11:13:01
+[2025-04-18T11:13:01.920+0000] {subprocess.py:106} INFO - [0m11:13:01  Finished running 43 tests in 0 hours 0 minutes and 2.92 seconds (2.92s).
+[2025-04-18T11:13:01.969+0000] {subprocess.py:106} INFO - [0m11:13:01
+[2025-04-18T11:13:01.971+0000] {subprocess.py:106} INFO - [0m11:13:01  [31mCompleted with 5 errors and 0 warnings:[0m
+[2025-04-18T11:13:01.972+0000] {subprocess.py:106} INFO - [0m11:13:01
+[2025-04-18T11:13:01.972+0000] {subprocess.py:106} INFO - [0m11:13:01    Database Error in test not_null_customer_orders_customer_id (models/marts/business/schema_business.yml)
+[2025-04-18T11:13:01.973+0000] {subprocess.py:106} INFO -   relation "commerce_business.customer_orders" does not exist
+[2025-04-18T11:13:01.974+0000] {subprocess.py:106} INFO -   LINE 14: from "postgres"."commerce_business"."customer_orders"
+[2025-04-18T11:13:01.975+0000] {subprocess.py:106} INFO -                 ^
+[2025-04-18T11:13:01.975+0000] {subprocess.py:106} INFO -   compiled Code at target/run/commerce_dbt/models/marts/business/schema_business.yml/not_null_customer_orders_customer_id.sql
+[2025-04-18T11:13:01.976+0000] {subprocess.py:106} INFO - [0m11:13:01
+[2025-04-18T11:13:01.976+0000] {subprocess.py:106} INFO - [0m11:13:01    Database Error in test not_null_customer_orders_order_count (models/marts/business/schema_business.yml)
+[2025-04-18T11:13:01.977+0000] {subprocess.py:106} INFO -   relation "commerce_business.customer_orders" does not exist
+[2025-04-18T11:13:01.978+0000] {subprocess.py:106} INFO -   LINE 14: from "postgres"."commerce_business"."customer_orders"
+[2025-04-18T11:13:01.978+0000] {subprocess.py:106} INFO -                 ^
+[2025-04-18T11:13:01.979+0000] {subprocess.py:106} INFO -   compiled Code at target/run/commerce_dbt/models/marts/business/schema_business.yml/not_null_customer_orders_order_count.sql
+[2025-04-18T11:13:01.979+0000] {subprocess.py:106} INFO - [0m11:13:01
+[2025-04-18T11:13:01.980+0000] {subprocess.py:106} INFO - [0m11:13:01    Database Error in test not_null_product_sales_product_id (models/marts/business/schema_business.yml)
+[2025-04-18T11:13:01.981+0000] {subprocess.py:106} INFO -   relation "commerce_business.product_sales" does not exist
+[2025-04-18T11:13:01.981+0000] {subprocess.py:106} INFO -   LINE 14: from "postgres"."commerce_business"."product_sales"
+[2025-04-18T11:13:01.982+0000] {subprocess.py:106} INFO -                 ^
+[2025-04-18T11:13:01.983+0000] {subprocess.py:106} INFO -   compiled Code at target/run/commerce_dbt/models/marts/business/schema_business.yml/not_null_product_sales_product_id.sql
+[2025-04-18T11:13:01.984+0000] {subprocess.py:106} INFO - [0m11:13:01
+[2025-04-18T11:13:01.984+0000] {subprocess.py:106} INFO - [0m11:13:01    Database Error in test not_null_product_sales_total_revenue (models/marts/business/schema_business.yml)
+[2025-04-18T11:13:01.985+0000] {subprocess.py:106} INFO -   relation "commerce_business.product_sales" does not exist
+[2025-04-18T11:13:01.986+0000] {subprocess.py:106} INFO -   LINE 14: from "postgres"."commerce_business"."product_sales"
+[2025-04-18T11:13:01.986+0000] {subprocess.py:106} INFO -                 ^
+[2025-04-18T11:13:01.987+0000] {subprocess.py:106} INFO -   compiled Code at target/run/commerce_dbt/models/marts/business/schema_business.yml/not_null_product_sales_total_revenue.sql
+[2025-04-18T11:13:01.987+0000] {subprocess.py:106} INFO - [0m11:13:01
+[2025-04-18T11:13:01.988+0000] {subprocess.py:106} INFO - [0m11:13:01    Database Error in test not_null_product_sales_total_units_sold (models/marts/business/schema_business.yml)
+[2025-04-18T11:13:01.988+0000] {subprocess.py:106} INFO -   relation "commerce_business.product_sales" does not exist
+[2025-04-18T11:13:01.989+0000] {subprocess.py:106} INFO -   LINE 14: from "postgres"."commerce_business"."product_sales"
+[2025-04-18T11:13:01.989+0000] {subprocess.py:106} INFO -                 ^
+[2025-04-18T11:13:01.990+0000] {subprocess.py:106} INFO -   compiled Code at target/run/commerce_dbt/models/marts/business/schema_business.yml/not_null_product_sales_total_units_sold.sql
+[2025-04-18T11:13:01.990+0000] {subprocess.py:106} INFO - [0m11:13:01
+[2025-04-18T11:13:01.991+0000] {subprocess.py:106} INFO - [0m11:13:01  Done. PASS=38 WARN=0 ERROR=5 SKIP=0 TOTAL=43
+[2025-04-18T11:13:02.858+0000] {subprocess.py:110} INFO - Command exited with return code 1
+[2025-04-18T11:13:02.908+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-04-18T11:13:02.913+0000] {taskinstance.py:1226} INFO - Marking task as FAILED. dag_id=dbt_etl_pipeline_test, task_id=dbt_test, run_id=manual__2025-04-18T11:12:53.480094+00:00, execution_date=20250418T111253, start_date=20250418T111254, end_date=20250418T111302
+[2025-04-18T11:13:03.056+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-18T11:13:03.057+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 83 for task dbt_test (Bash command failed. The command returned a non-zero exit code 1.; 357)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-04-18T11:13:03.079+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-04-18T11:13:03.150+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-18T11:13:03.153+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

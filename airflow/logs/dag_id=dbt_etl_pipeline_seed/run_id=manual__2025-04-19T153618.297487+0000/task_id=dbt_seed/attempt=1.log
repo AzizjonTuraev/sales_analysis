@@ -1,0 +1,48 @@
+[2025-04-19T15:36:19.082+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-19T15:36:19.253+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_etl_pipeline_seed.dbt_seed manual__2025-04-19T15:36:18.297487+00:00 [queued]>
+[2025-04-19T15:36:19.264+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_etl_pipeline_seed.dbt_seed manual__2025-04-19T15:36:18.297487+00:00 [queued]>
+[2025-04-19T15:36:19.270+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-04-19T15:36:19.287+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): dbt_seed> on 2025-04-19 15:36:18.297487+00:00
+[2025-04-19T15:36:19.295+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=3562) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-19T15:36:19.296+0000] {standard_task_runner.py:72} INFO - Started process 3563 to run task
+[2025-04-19T15:36:19.295+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'dbt_etl_pipeline_seed', 'dbt_seed', 'manual__2025-04-19T15:36:18.297487+00:00', '--job-id', '224', '--raw', '--subdir', 'DAGS_FOLDER/dbt_seed.py', '--cfg-path', '/tmp/tmpcjl24s4y']
+[2025-04-19T15:36:19.297+0000] {standard_task_runner.py:105} INFO - Job 224: Subtask dbt_seed
+[2025-04-19T15:36:19.481+0000] {task_command.py:467} INFO - Running <TaskInstance: dbt_etl_pipeline_seed.dbt_seed manual__2025-04-19T15:36:18.297487+00:00 [running]> on host 27536697ee14
+[2025-04-19T15:36:19.703+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='azizjon' AIRFLOW_CTX_DAG_ID='dbt_etl_pipeline_seed' AIRFLOW_CTX_TASK_ID='dbt_seed' AIRFLOW_CTX_EXECUTION_DATE='2025-04-19T15:36:18.297487+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-19T15:36:18.297487+00:00'
+[2025-04-19T15:36:19.704+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-19T15:36:19.718+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-04-19T15:36:19.720+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '\n        export PATH=/home/airflow/.local/bin:$PATH\n        cd /opt/airflow/commerce_dbt\n        dbt seed --profiles-dir .\n        ']
+[2025-04-19T15:36:19.728+0000] {subprocess.py:99} INFO - Output:
+[2025-04-19T15:36:21.979+0000] {subprocess.py:106} INFO - [0m15:36:21  Running with dbt=1.7.0
+[2025-04-19T15:36:22.241+0000] {subprocess.py:106} INFO - [0m15:36:22  Registered adapter: postgres=1.7.0
+[2025-04-19T15:36:22.697+0000] {subprocess.py:106} INFO - [0m15:36:22  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2025-04-19T15:36:22.698+0000] {subprocess.py:106} INFO - There are 1 unused configuration paths:
+[2025-04-19T15:36:22.698+0000] {subprocess.py:106} INFO - - seeds.initial_dataset
+[2025-04-19T15:36:22.766+0000] {subprocess.py:106} INFO - [0m15:36:22  Found 13 models, 1 snapshot, 6 seeds, 43 tests, 6 sources, 0 exposures, 0 metrics, 401 macros, 0 groups, 0 semantic models
+[2025-04-19T15:36:22.770+0000] {subprocess.py:106} INFO - [0m15:36:22
+[2025-04-19T15:36:23.143+0000] {subprocess.py:106} INFO - [0m15:36:23  Concurrency: 4 threads (target='dev')
+[2025-04-19T15:36:23.143+0000] {subprocess.py:106} INFO - [0m15:36:23
+[2025-04-19T15:36:23.155+0000] {subprocess.py:106} INFO - [0m15:36:23  1 of 6 START seed file commerce_raw.customers .................................. [RUN]
+[2025-04-19T15:36:23.156+0000] {subprocess.py:106} INFO - [0m15:36:23  2 of 6 START seed file commerce_raw.order_items ................................ [RUN]
+[2025-04-19T15:36:23.156+0000] {subprocess.py:106} INFO - [0m15:36:23  3 of 6 START seed file commerce_raw.orders ..................................... [RUN]
+[2025-04-19T15:36:23.157+0000] {subprocess.py:106} INFO - [0m15:36:23  4 of 6 START seed file commerce_raw.product_categories ......................... [RUN]
+[2025-04-19T15:36:24.217+0000] {subprocess.py:106} INFO - [0m15:36:24  4 of 6 OK loaded seed file commerce_raw.product_categories ..................... [[32mINSERT 4[0m in 1.02s]
+[2025-04-19T15:36:24.272+0000] {subprocess.py:106} INFO - [0m15:36:24  5 of 6 START seed file commerce_raw.products ................................... [RUN]
+[2025-04-19T15:36:24.992+0000] {subprocess.py:106} INFO - [0m15:36:24  5 of 6 OK loaded seed file commerce_raw.products ............................... [[32mINSERT 17[0m in 0.70s]
+[2025-04-19T15:36:25.044+0000] {subprocess.py:106} INFO - [0m15:36:25  6 of 6 START seed file commerce_raw.stores ..................................... [RUN]
+[2025-04-19T15:36:25.748+0000] {subprocess.py:106} INFO - [0m15:36:25  1 of 6 OK loaded seed file commerce_raw.customers .............................. [[32mINSERT 1000[0m in 2.58s]
+[2025-04-19T15:36:25.991+0000] {subprocess.py:106} INFO - [0m15:36:25  6 of 6 OK loaded seed file commerce_raw.stores ................................. [[32mINSERT 5[0m in 0.88s]
+[2025-04-19T15:36:34.990+0000] {subprocess.py:106} INFO - [0m15:36:34  3 of 6 OK loaded seed file commerce_raw.orders ................................. [[32mINSERT 7000[0m in 11.83s]
+[2025-04-19T15:36:37.222+0000] {subprocess.py:106} INFO - [0m15:36:37  2 of 6 OK loaded seed file commerce_raw.order_items ............................ [[32mINSERT 10000[0m in 14.06s]
+[2025-04-19T15:36:37.304+0000] {subprocess.py:106} INFO - [0m15:36:37
+[2025-04-19T15:36:37.305+0000] {subprocess.py:106} INFO - [0m15:36:37  Finished running 6 seeds in 0 hours 0 minutes and 14.53 seconds (14.53s).
+[2025-04-19T15:36:37.332+0000] {subprocess.py:106} INFO - [0m15:36:37
+[2025-04-19T15:36:37.333+0000] {subprocess.py:106} INFO - [0m15:36:37  [32mCompleted successfully[0m
+[2025-04-19T15:36:37.334+0000] {subprocess.py:106} INFO - [0m15:36:37
+[2025-04-19T15:36:37.335+0000] {subprocess.py:106} INFO - [0m15:36:37  Done. PASS=6 WARN=0 ERROR=0 SKIP=0 TOTAL=6
+[2025-04-19T15:36:38.434+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-04-19T15:36:38.556+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-19T15:36:38.557+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=dbt_etl_pipeline_seed, task_id=dbt_seed, run_id=manual__2025-04-19T15:36:18.297487+00:00, execution_date=20250419T153618, start_date=20250419T153619, end_date=20250419T153638
+[2025-04-19T15:36:38.796+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-19T15:36:38.855+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-19T15:36:38.857+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

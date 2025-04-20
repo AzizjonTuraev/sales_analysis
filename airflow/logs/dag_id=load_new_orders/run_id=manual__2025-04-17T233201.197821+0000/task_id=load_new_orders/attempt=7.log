@@ -1,0 +1,104 @@
+[2025-04-17T23:47:10.231+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-17T23:47:10.310+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: load_new_orders.load_new_orders manual__2025-04-17T23:32:01.197821+00:00 [queued]>
+[2025-04-17T23:47:10.322+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: load_new_orders.load_new_orders manual__2025-04-17T23:32:01.197821+00:00 [queued]>
+[2025-04-17T23:47:10.323+0000] {taskinstance.py:2867} INFO - Starting attempt 7 of 7
+[2025-04-17T23:47:10.339+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): load_new_orders> on 2025-04-17 23:32:01.197821+00:00
+[2025-04-17T23:47:10.345+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'load_new_orders', 'load_new_orders', 'manual__2025-04-17T23:32:01.197821+00:00', '--job-id', '34', '--raw', '--subdir', 'DAGS_FOLDER/store_to_sql.py', '--cfg-path', '/tmp/tmpnq_6hlf1']
+[2025-04-17T23:47:10.347+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=8632) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-17T23:47:10.347+0000] {standard_task_runner.py:105} INFO - Job 34: Subtask load_new_orders
+[2025-04-17T23:47:10.348+0000] {standard_task_runner.py:72} INFO - Started process 8633 to run task
+[2025-04-17T23:47:10.552+0000] {task_command.py:467} INFO - Running <TaskInstance: load_new_orders.load_new_orders manual__2025-04-17T23:32:01.197821+00:00 [running]> on host 7c345d097a17
+[2025-04-17T23:47:10.789+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='azizjon' AIRFLOW_CTX_DAG_ID='load_new_orders' AIRFLOW_CTX_TASK_ID='load_new_orders' AIRFLOW_CTX_EXECUTION_DATE='2025-04-17T23:32:01.197821+00:00' AIRFLOW_CTX_TRY_NUMBER='7' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-17T23:32:01.197821+00:00'
+[2025-04-17T23:47:10.790+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-17T23:47:10.964+0000] {logging_mixin.py:190} INFO - Error loading orders: [Errno 2] No such file or directory: '/opt/airflow/dags/new_dataset/new_orders.csv'
+[2025-04-17T23:47:10.965+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/store_to_sql.py", line 148, in load_new_orders
+    with open(csv_file_path, 'r') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/airflow/dags/new_dataset/new_orders.csv'
+[2025-04-17T23:47:11.024+0000] {taskinstance.py:1226} INFO - Marking task as FAILED. dag_id=load_new_orders, task_id=load_new_orders, run_id=manual__2025-04-17T23:32:01.197821+00:00, execution_date=20250417T233201, start_date=20250417T234710, end_date=20250417T234711
+[2025-04-17T23:47:11.155+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-17T23:47:11.156+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 34 for task load_new_orders ([Errno 2] No such file or directory: '/opt/airflow/dags/new_dataset/new_orders.csv'; 8633)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/store_to_sql.py", line 148, in load_new_orders
+    with open(csv_file_path, 'r') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/airflow/dags/new_dataset/new_orders.csv'
+[2025-04-17T23:47:11.169+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-04-17T23:47:11.224+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-17T23:47:11.226+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
