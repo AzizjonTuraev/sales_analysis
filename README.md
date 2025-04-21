@@ -11,21 +11,19 @@ This is a complete end-to-end project, which implements ETL Pipelines, makes ana
 ## System Architecture
 ![workflow](temp/pics/workflow2.png)
 <!-- <img src="temp/pics/workflow.png" alt="Workflow Diagram" width="500" /> -->
-## Entity Relationship
+## Entity Relationship: Data Modelling
 ![entity_relationship](temp/pics/entity_relationship.png)
 
-## Features
+## 🔧 What is covered in this project?
 - **ELT using Apache Airflow and DBT Tool**: Automating ELT process.
 - **Connecting to other Data & Business Analysis Tools**: Connecting Apache Airflow to PostgreSQL and PostgreSQL to PowerBI.
-- **Time Series Prediction**: Different Machine Learning Models and an ARIMA Model were built for sale prediction, and the best model, LightGBM, has been selected.
+- **Time Series Prediction**: Different Machine Learning Models and an ARIMA Model were built for sales prediction, and the best model, LightGBM, has been selected.
 - **FastAPI Deployment**: The recommendation system was deployed using FastAPI.
 - **Docker Support**: Created a Dockerfile for easy deployment..
 
-## Running the Application
+## How to run the Application
 
-You can run the recommendation system either manually or by using Docker. Below are the instructions for both methods:
-
-### Method 1: Execution using Docker
+### Apache Airflow: Data Engineering Part
 
 1. **Initiate Apache Airflow**:
 
@@ -46,8 +44,9 @@ You can run the recommendation system either manually or by using Docker. Below 
     dbt docs serve --port 8081
     ```
 
+### FastAPI: Deployment Part
 
-3. **Build the Docker image**:
+1. **Build the Docker image**:
 
     ```bash
     docker build -t sales_project .
@@ -56,12 +55,12 @@ You can run the recommendation system either manually or by using Docker. Below 
 
     This will expose the FastAPI app on `http://127.0.0.1:8000`.
 
-4. **Access the application**:
+2. **Access the application**:
     - **FastAPI Docs**: You can access the auto-generated documentation and interact with the FastAPI at `http://localhost:8000/docs#/default`.
 
 ## Available API Functions
 
-The API exposes four main functions, which are also accessible through the web interface:
+The API exposes the main function - weekly prediction, which is also accessible through the FastAPI Web User Interface:
 
 **weekly_predictions**: This returns a weekly prediction for a specific product. Please look at the available product names below or in the products.csv file:
 - iPhone
