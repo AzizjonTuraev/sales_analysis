@@ -9,7 +9,7 @@ This is a complete end-to-end project, which implements ETL Pipelines, makes ana
 - `stores.csv`
 
 ### Project Structure Overview
-![workflow](temp/pics/workflow.png)
+![workflow](temp/pics/workflow2.png)
 <!-- <img src="temp/pics/workflow.png" alt="Workflow Diagram" width="500" /> -->
 ### Entity Relationship
 ![entity_relationship](temp/pics/entity_relationship.png)
